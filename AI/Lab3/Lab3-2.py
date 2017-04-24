@@ -1,3 +1,11 @@
+
+#3. Puzzle
+#A child has a set of words W = {w1, ..., w2n}, each word having n characters. 
+#Help him build an n x n crossover puzzle using all the words.
+#For example if n = 3 and
+#W = {AGE, AGO, BEG, CAB, CAD, DOG} the resulting puzzle would be:
+
+
 from random import*
 import itertools
 import math
@@ -177,58 +185,6 @@ class Algorithm:
 
 		return math.sqrt(suma/len(best))
 
-
-
-
-
-
-	'''
-
-	def mutate(self, ind):
-
-		k = randint(0,ind.size - 1)
-		a = ind.x[k]
-		ind.x[k] = ind.x[k - 1]
-		ind.x[k - 1] = a
-
-
-	def crossover(self, i1, i2):
-		child = Individ(self.pr)
-		subs = i1.size // 2 #size of subset
-
-		subset = []
-		k = randint(0,i1.size - 1)
-		for i in xrange(subs):
-			if k < i1.size - 1:
-				k = k + 1
-			else:
-				k = 0
-			child.x[k] = i1.x[k]
-			subset.append(i1.x[k])
-
-		if k < i1.size - 1:
-			j = k + 1
-		else:
-			j = 0
-		ok = 0
-		while ok < subs:
-			if k < i1.size - 1:
-				k = k + 1
-				
-			else:
-				k = 0
-			if i2.x[k] not in subset:
-				ok = ok + 1
-				child.x[j] = i2.x[k]
-				if j < i1.size - 1:
-					j = j + 1
-				else:
-					j = 0
-			
-
-		return child
-
-	'''
 
 
 if __name__ == '__main__':
