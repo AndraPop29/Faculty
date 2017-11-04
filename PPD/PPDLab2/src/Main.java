@@ -3,10 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 /**
  * Created by andrapop on 2017-10-09.
@@ -62,20 +59,15 @@ public class Main
     }
     public static int[][] result;
 
-    public static void multiplyMatrices(int x, int y) { // multiplies only the lines in [x,y] from the first matrix with the second
-
+    public static Void multiplyMatrices(int x, int y) { // multiplies only the lines in [x,y] from the first matrix with the second
         for(int i = x ; i < y ; i ++ )
             for(int j = 0 ; j < b[0].length ; j ++) {
                 //System.out.println(b[0].length);
-
                 for (int k = 0; k < a[0].length; k++) {
                     result[i][j] += a[i][k] * b[k][j];
                 }
             }
-
-
-
-
+        return null;
     }
 
     public static long totalDuration;
@@ -124,8 +116,14 @@ public class Main
             executor.execute(new Thread(() -> multiplyMatrices(c2, c2 + nr)));
             j = j + nr ;
         }
+
         executor.shutdown();
-        while(!executor.isTerminated()) {}
+       // while(!executor.isTerminated()) {}
+        try {
+            executor.awaitTermination(1, TimeUnit.MINUTES);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
     public static void FutureTask(int n, int rest, int var, int nr) {
         ExecutorService executor = Executors.newFixedThreadPool(n);
@@ -147,7 +145,16 @@ public class Main
         }
 
         executor.shutdown();
-        while(!executor.isTerminated()) {}
+
+        for(Future f: futureList) {
+            try {
+                f.get();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            } catch (ExecutionException e) {
+                e.printStackTrace();
+            }
+        }
     }
     public static void main(String []args) throws FileNotFoundException {
         Scanner reader = new Scanner(System.in);
@@ -182,8 +189,8 @@ public class Main
         int var = 0;
         long startTime = System.nanoTime();
         //simpleThreads(n, rest, var, nr);
-        //FutureTask(n, rest, var, nr);
-        ThreadPool(n, rest, var, nr);
+        FutureTask(n, rest, var, nr);
+        //ThreadPool(n, rest, var, nr);
         long endTime = System.nanoTime();
         long totalDuration = (endTime - startTime);
         System.out.println("The duration in miliseconds:");
