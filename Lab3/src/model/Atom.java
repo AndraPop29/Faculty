@@ -1,3 +1,5 @@
+package model;
+
 /**
  * Created by andrapop on 2017-10-22.
  */
@@ -29,7 +31,7 @@ public class Atom {
 
     @Override
     public String toString() {
-        return "Atom{" +
+        return "model.Atom{" +
                 "atomName='" + atomName + '\'' +
                 ", atomCode=" + atomCode +
                 '}';

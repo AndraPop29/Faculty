@@ -8,7 +8,6 @@ struct comp
         double pi;
         double radius;
     } c;
-
     c.pi = 3.14;
     int area;
     area = 0;

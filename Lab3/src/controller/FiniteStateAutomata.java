@@ -10,6 +10,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.*;
+import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
 
 public class FiniteStateAutomata {
@@ -227,5 +228,49 @@ public class FiniteStateAutomata {
         }
 
         return result;
+    }
+
+
+    public void displaySetOfStates() {
+        if (null == this) {
+            System.err.println("FA not loaded.");
+            return;
+        }
+
+        System.out.println("The set of states: ");
+        this.getTheSetOfStates()
+                .forEach(System.out::println);
+        System.out.println("---");
+    }
+
+    public void displayAlphabet() {
+        if (null == this) {
+            System.err.println("FA not loaded.");
+            return;
+        }
+
+        System.out.print("The alphabet: ");
+        this.getAlphabet()
+                .forEach(System.out::print);
+        System.out.print("\n");
+    }
+
+    public void displayTransitions() {
+        if (null == this) {
+            System.err.println("FA not loaded.");
+            return;
+        }
+
+        System.out.println("The set of transitions: ");
+        this.getTransitions()
+                .forEach(new BiConsumer<Pair<State, String>, State>() {
+                    @Override
+                    public void accept(Pair<State, String> stateStringPair, State state) {
+                        System.out.println(stateStringPair.getFirst().getLabel() + " - " + stateStringPair.getSecond()
+                                + " - " + state.getLabel()
+                        );
+                    }
+                });
+        System.out.println("---");
     }
 }
