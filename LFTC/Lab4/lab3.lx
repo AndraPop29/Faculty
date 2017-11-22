@@ -112,7 +112,7 @@ DIGIT 		[0-9]
 ID      [a-z][a-z0-9]*
 
 %%
-{DIGIT}+                                addConst(atoi( yytext ));
+{DIGIT}+[ \t\n;]+                                addConst(atoi( yytext ));
 {DIGIT}+"."{DIGIT}*                     addConst(atof( yytext ));
 
 \identificator                         addFip(0,0);
@@ -137,7 +137,6 @@ return                                      addFip(15,0);
 \{                                   addFip(19,0);
 \}                                    addFip(20,0);
 \,                                      addFip(21,0);
-\++                                     addFip(22,0);
 \<<                                      addFip(23,0);
 \>>                                      addFip(24,0);
 \+                                       addFip(25,0);
@@ -157,8 +156,8 @@ return                                      addFip(15,0);
 [ \t\n]+             ;/* remove whitespace */
 
 . {
-  if(yytext[0] != 13) {
-    printf("illegal token %s si %d !",yytext,yytext[0]);
+  if(yytext[0] != 13) { // 13 is the ascii code of carriage return(CR)
+    printf("illegal token %s, first character ascii: %d \n!",yytext,yytext[0]);
   }
 }
 %%
