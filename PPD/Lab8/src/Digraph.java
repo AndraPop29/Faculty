@@ -9,6 +9,7 @@ public class Digraph<V> {
      * of an array of lists, a Map is used to map each vertex to its list of
      * adjacent vertices.
      */
+    public int c;
     private Map<V,List<V>> neighbors = new HashMap<V,List<V>>();
 
     /**
@@ -26,6 +27,13 @@ public class Digraph<V> {
     public void add (V vertex) {
         if (neighbors.containsKey(vertex)) return;
         neighbors.put(vertex, new ArrayList<V>());
+    }
+
+    public boolean hasArc(V v1, V v2) {
+        if (neighbors.containsKey(v1)) {
+            return neighbors.get(v1).contains(v2);
+        }
+        return false;
     }
 
     /**
