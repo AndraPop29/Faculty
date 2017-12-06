@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Digraph<V> {
     /**
@@ -9,7 +10,7 @@ public class Digraph<V> {
      * of an array of lists, a Map is used to map each vertex to its list of
      * adjacent vertices.
      */
-    public int c;
+    public boolean hasHamCycle;
     private Map<V,List<V>> neighbors = new HashMap<V,List<V>>();
 
     /**
@@ -83,6 +84,17 @@ public class Digraph<V> {
             }
         }
         return result;
+    }
+
+    public int[][] generateRandomAdjMatrix(int v) {
+        int[][] matrix = new int[v][v];
+        for(int i = 0; i < v; i ++) {
+            for(int j = 0; j < v; j ++) {
+                matrix[i][j] = ThreadLocalRandom.current().nextInt(0, 2);
+                matrix[i][i] = 0;
+            }
+        }
+        return matrix;
     }
 
 }

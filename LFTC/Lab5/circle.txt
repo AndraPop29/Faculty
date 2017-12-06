@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+struct comp
+    {
+        double pi, radius;
+    } c;
+    c.pi = 3.14;
+    int area;
+    area = 0;
+    cin >> c.radius;
+    int circ = 2 * c.pi * c.radius;
+    area = c.pi * c.radius * c.radius;
+
+    cout << area;
+    cout << circ;
+    return 0;
+
+   
+}

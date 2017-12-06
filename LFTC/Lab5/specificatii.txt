@@ -1,0 +1,115 @@
+1.1 Alphabet:a. Upper (A-Z) and lower case letters (a-z) of the English alphabetb. Underline character '_';c. Decimal digits (0-9);Lexic:a. Special symbols:
+	- operators: + - * / < <= = == && << >> .(selector)	- seperators: () {} ; ,	- reserved words: using namespace #include main if while int cout cin struct double for return
+
+b. identifiers
+
+-a sequence of letters and digits, such that the first charater is a letter; the rule is:
+identifier ::= letter | letter{letter}{digit}
+letter ::= “a”|…|”z”|”A” | "B" | . ..| "Z"
+digit ::= "0" | "1" |...| "9"
+
+c. constants
+
+1.integer
+
+rule: 
+constnr:= +nr|-nr|nr|nr0
+nr := digit{nr}
+nr0 := 0
+
+2.character
+
+rule:
+character:='letter'|'digit'
+
+3.string
+
+rule:
+constchar:="string"
+string:=char{string}
+char:=letter|digit
+
+lexical rules:
+IDENTIFIER ::= letter | letter{letter}{digit}
+letter ::= "A" | "B" | . ..| "Z"
+digit ::= "0" | "1" |...| "9"
+RELATION ::= "<" | "<=" | "=" | “==“ | ">=" | ">"
+
+4. float
+
+rule:
+floatnr:= [sign] {nr}* decimal-point {nr}*
+sign ::= + | -
+decimal-point ::= .
+nr ::= digit{nr}
+
+SYNTAX
+<program> ::= <includs><usage><main>
+
+<includs> ::= <include> | <includs>
+<include> ::= "#include <"<id>">"
+
+<id> ::= <letter><charlist>
+<letter> ::= "a"|...|"z"|"A"|...|"Z"
+<charlist> ::= <char> | <char><charlist>
+<char> ::= <letter>|"0"|...|"9"
+
+<idConst> ::= <idc0>|<idc><idc0> | <idc> <idConst>
+<idc> ::= "1"|...|"9"
+<idc0> ::= "0|...|"9"
+
+
+<usage> ::= "using namespace std"
+
+<main> ::= "int main(){" <stmtList> " return 0;}"
+
+<stmtList> ::= <stmt>  | <stmt><stmtList> 
+<stmt> ::= <decl> ";"| <assign> ";"| <input> ";"| <loop> | <output>";" | <conditional>
+
+<decl> ::= <type> <ids>  
+<ids> ::= <id> | <id> "," <ids>  
+<type> ::= "int" | "double" | <struct>
+<struct> ::= "struct" <id> "{" <decl> "}" 
+
+<var> ::= <id> | <id> "." <var>
+
+<assign> ::= <var> <assignOP> <expr> | <var> <unaryOP> | <unaryOP> <var>
+<assignOP> ::= "=" 
+<unaryOP> ::= "--" | "++"
+<expr> ::= <var> <unaryOP> | <unaryOP> <var> | <var> <op> <var> | <idConst> <op> <var> <op> <var> | !
+<op> ::= "+" | "-" | "*" | "/" | "%" 
+
+<loop> ::= "for("<init> ";" <conditions> ";" <increment> ")" <block>
+
+<init> ::= "" | <decl> <assignOP> <idConst> | <decl> <assignOP> <id> 
+<conditions> ::= "" | <cond> | <cond> <logicalOP> <conditions>
+<cond> ::= <var> <condOP> <var>
+<condOP> ::= "==" | "<" | "<=" | ">" | ">=" | "!="
+<logicalOP> ::= "&&"
+<increment> ::= "" | <expr> | <assign>
+
+<block> ::= "{" <stmtList> "}"
+
+<input> ::= "cin>>" <var>
+<output> ::= "cout" <var>
+
+<conditional> ::= "if("<conditions>")"<block>
+
+- linia din fisier unde da eroare
+- a se adauga la expresia regulara pt constante stringuri cu caractere permise
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
