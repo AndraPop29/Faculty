@@ -14,7 +14,7 @@ struct comp
     int circ = 2 * c.pi * c.radius;
     area = c.pi * c.radius * c.radius;
 
-    cout << area;
+    cout << area
     cout << circ;
     return 0;
 

@@ -1699,7 +1699,7 @@ yyreturn:
 }
 
 
-#line 120 "lab4.y"
+#line 90 "lab4.y"
 
 
 int main(int argc, char *argv[]) {

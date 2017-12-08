@@ -15,6 +15,8 @@ public class NumberSum {
     private int n;
     private List<Integer> numbers;
     private List<Pair> sums;
+    private List<Thread> threads;
+
     public NumberSum(int n) {
         numbers = new ArrayList<>();
 //        numbers.add(5);
@@ -25,14 +27,14 @@ public class NumberSum {
 //        numbers.add(10);
 //        numbers.add(-2);
 //        numbers.add(8);
+        threads = new ArrayList<>();
         sums = new ArrayList<>();
         IntStream.range(0,n).forEach(nr -> numbers.add(ThreadLocalRandom.current().nextInt(1, 11)));
     }
 
     public void buildThreadBinaryTree() {
         // PASS 1
-        List<Thread> threads = new ArrayList<>();
-        for(int i = 0 ; i<numbers.size(); i+=2) {
+        for(int i = 0 ; i<numbers.size() - 1; i+=2) {
             final int j = i;
             threads.add(new Thread(() -> sums.add(new Pair(numbers.get(j), 0))));
             threads.get(threads.size() -1).start();
@@ -46,6 +48,8 @@ public class NumberSum {
                 e.printStackTrace();
             }
         }
+        threads.clear();
+        System.out.println(sums.size());
         int i = 0;
         int k = 4;
         while(i<numbers.size()) {
@@ -65,6 +69,7 @@ public class NumberSum {
                         e.printStackTrace();
                     }
                 }
+
                 i = 0;
                 k = k * 2;
             }
@@ -98,6 +103,7 @@ public class NumberSum {
                 k = k / 2;
             }
         }
+        threads.clear();
 
     }
     public int getN() {

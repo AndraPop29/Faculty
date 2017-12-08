@@ -4,8 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner reader = new Scanner(System.in);
-        System.out.println("n(multiple of 2) = ");
-        int n = reader.nextInt(); // should be a multiple of 2^n
+        System.out.println("n = ");
+        int n = reader.nextInt();
         NumberSum nrSum = new NumberSum(n);
         nrSum.buildThreadBinaryTree();
         System.out.println("NUMBERS");
@@ -14,9 +14,10 @@ public class Main {
         }
         System.out.println();
         System.out.println("SUMS");
-        for(Pair sum : nrSum.getSums()) {
-            System.out.print(sum.getFromLeft()+" ");
+        for(int i = 1; i < nrSum.getSums().size(); i++) {
+            System.out.print(nrSum.getSums().get(i).getFromLeft()+" ");
         }
+        System.out.println(nrSum.getSums().get(nrSum.getSums().size() - 1).getSum());
 
     }
 }

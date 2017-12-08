@@ -86,37 +86,7 @@ output: COUT OUT var
 
 conditional: IF '(' conditions ')' block
 
-//listaInstructiuni: instructiune | instructiune listaInstructiuni
-//
-//instructiune: atribuire | io | if | while | for | call
-//
-//atribuire: IDENTIFICATOR ASSIGN expresie
-//
-//expresie: term | expresie '+' term | expresie '-' term
-//
-//term: factor | factor '*' term | factor '/' term |factor '%' term
-//
-//factor: CONSTANT | IDENTIFICATOR | identifCompus | '(' expresie ')'
-//
-//identifCompus: IDENTIFICATOR '[' chestie ']'
-//
-//chestie: IDENTIFICATOR | CONSTANT
-//
-//io: READ '(' IDENTIFICATOR ')' | READ '(' identifCompus ')' | WRITE '(' IDENTIFICATOR ')' |  WRITE '(' identifCompus ')'
-//
-//if: IF conditie '{' listaInstructiuni '}' | IF conditie '{' listaInstructiuni '}' ELSE '{' listaInstructiuni '}'
-//
-//conditie: expresie relatie expresie
-//
-//relatie: LE | LT | GE | GT | EQ | NEQ
-//
-//while: WHILE conditie '{' listaInstructiuni '}'
-//
-//for: FOR ':' IDENTIFICATOR ASSIGN chestie ',' chestie '{' listaInstructiuni '}' | FOR ':' IDENTIFICATOR ASSIGN chestie ',' chestie ',' chestie '{' listaInstructiuni '}'
-//
-//call: CALL ':' IDENTIFICATOR '(' listaParam ')'
-//
-//listaParam:  IDENTIFICATOR ':' type | expresie ':' type | IDENTIFICATOR ':' type listaParam | expresie ':' type listaParam
+
 %%
 
 int main(int argc, char *argv[]) {

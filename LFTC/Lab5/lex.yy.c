@@ -1018,7 +1018,7 @@ YY_RULE_SETUP
 case 29:
 YY_RULE_SETUP
 #line 109 "lab4.lx"
-{addFip(23,0); return '+';}
+{addFip(23,0); return PLUS;}
 	YY_BREAK
 case 30:
 YY_RULE_SETUP

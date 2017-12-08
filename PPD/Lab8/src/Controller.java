@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collector;
 import java.util.stream.IntStream;
 
@@ -12,7 +13,7 @@ public class Controller {
         List permutation = new ArrayList<>();
         IntStream.range(0,v).forEach(n -> permutation.add(n));
         IntStream.range(0, 10000).forEach(n -> {
-            Collections.shuffle(permutation);
+            Collections.shuffle(permutation, ThreadLocalRandom.current());
             if (checkForHamCycle(permutation, graph)) {
                 graph.hasHamCycle = true;
                 return;
