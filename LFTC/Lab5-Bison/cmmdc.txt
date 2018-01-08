@@ -6,7 +6,7 @@ int main() {
 int first,second,gcd;
 cin>>first;
 cin>>second;
-for(int i=1;i<=first && i<=second;i++)
+for(int i=1;i<=first&&i<=second;i++)
 {
     if(first%i==0 && second%i==0)
     {

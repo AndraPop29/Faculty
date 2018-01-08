@@ -1027,88 +1027,88 @@ addFip(21,0);
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 141 "lab3.lx"
+#line 140 "lab3.lx"
 addFip(23,0);
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 142 "lab3.lx"
+#line 141 "lab3.lx"
 addFip(24,0);
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 143 "lab3.lx"
+#line 142 "lab3.lx"
 addFip(25,0);
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 144 "lab3.lx"
+#line 143 "lab3.lx"
 addFip(26,0);
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 145 "lab3.lx"
+#line 144 "lab3.lx"
 addFip(27,0);
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 146 "lab3.lx"
+#line 145 "lab3.lx"
 addFip(28,0);
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 147 "lab3.lx"
+#line 146 "lab3.lx"
 addFip(29,0);
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 148 "lab3.lx"
+#line 147 "lab3.lx"
 addFip(30,0);
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 149 "lab3.lx"
+#line 148 "lab3.lx"
 addFip(31,0);
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 150 "lab3.lx"
+#line 149 "lab3.lx"
 addFip(32,0);
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 151 "lab3.lx"
+#line 150 "lab3.lx"
 addFip(33,0);
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 152 "lab3.lx"
+#line 151 "lab3.lx"
 addFip(34,0);
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 153 "lab3.lx"
+#line 152 "lab3.lx"
 addFip(35,0);
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 154 "lab3.lx"
+#line 153 "lab3.lx"
 addFip(36,0);
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 155 "lab3.lx"
+#line 154 "lab3.lx"
 addIdentif( yytext);
 	YY_BREAK
 case 40:
 /* rule 40 can match eol */
 YY_RULE_SETUP
-#line 157 "lab3.lx"
+#line 156 "lab3.lx"
 ;/* remove whitespace */
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 159 "lab3.lx"
+#line 158 "lab3.lx"
 {
   if(yytext[0] != 13) { // 13 is the ascii code of carriage return(CR)
     printf("illegal token %s, first character ascii: %d \n!",yytext,yytext[0]);
@@ -1117,7 +1117,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 164 "lab3.lx"
+#line 163 "lab3.lx"
 ECHO;
 	YY_BREAK
 #line 1124 "lex.yy.c"
@@ -2117,7 +2117,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 164 "lab3.lx"
+#line 163 "lab3.lx"
 
 
 main( argc, argv )
