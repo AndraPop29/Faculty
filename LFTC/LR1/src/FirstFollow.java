@@ -1,16 +1,17 @@
 import javax.print.DocFlavor;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by andrapop on 2017-12-24.
  */
 public class FirstFollow {
 
-    private List<Character> first;
-    private List<Character> follow;
+    private Set<Character> first;
+    private Set<Character> follow;
 
 
-    public FirstFollow(List<Character> first, List<Character> follow) {
+    public FirstFollow(Set<Character> first, Set<Character> follow) {
         this.first = first;
         this.follow = follow;
     }
@@ -18,19 +19,19 @@ public class FirstFollow {
     public FirstFollow() {
     }
 
-    public List<Character> getFirst() {
+    public Set<Character> getFirst() {
         return first;
     }
 
-    public void setFirst(List<Character> first) {
+    public void setFirst(Set<Character> first) {
         this.first = first;
     }
 
-    public List<Character> getFollow() {
+    public Set<Character> getFollow() {
         return follow;
     }
 
-    public void setFollow(List<Character> follow) {
+    public void setFollow(Set<Character> follow) {
         this.follow = follow;
     }
 

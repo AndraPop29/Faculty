@@ -66,7 +66,7 @@ public class Parser {
         return str.matches("-?\\d+(\\.\\d+)?");  //match a number with optional '-' and decimal.
     }
 
-    public List getFirst(String left) {
+    public Set getFirst(String left) {
         Set<Character> list = new HashSet<>();
         rules.stream().forEach(r -> {
             if(r.left.equals(left)) {
@@ -78,12 +78,12 @@ public class Parser {
                 }
             }
         });
-        List<Character> list1 = new ArrayList<>();
-        list1.addAll(list);
-        return list1;
+//        List<Character> list1 = new ArrayList<>();
+//        list1.addAll(list);
+        return list;
     }
 
-    public List getFollow(String left) {
+    public Set getFollow(String left) {
         Set<Character> list = new HashSet<>();
         int index = 0;
         List<Rule> rules2 = new ArrayList<>();
@@ -108,7 +108,18 @@ public class Parser {
                                     list.addAll(firstFollowTable.get(String.valueOf(r.right.charAt(i + 1))).getFirst()); // A -> aBC
                                 }
                             } else {
-                                list.addAll(firstFollowTable.get(r.left.charAt(0)).getFollow()); // A → aB
+                                try {
+                                    list.addAll(firstFollowTable.get(r.left.charAt(0)).getFollow());
+                                } catch(Exception e) {
+                                }
+//                                if(firstFollowTable.get(r.left.charAt(0)).getFollow().size() == 0) {
+//                                    list.addAll(firstFollowTable.get(r.left.charAt(0)).getFollow()); // A → aB
+//
+//                                } else {
+//                                    firstFollowTable.get(r.left.charAt(0)).setFollow(getFollow(r.left));
+//                                    list.addAll(firstFollowTable.get(r.left.charAt(0)).getFollow()); // A → aB
+//
+//                                }
 
                             }
                         }
@@ -133,18 +144,23 @@ public class Parser {
             index++;
         }
 
-        List<Character> list1 = new ArrayList<>();
-        list1.addAll(list);
-        return list1;
+//        List<Character> list1 = new ArrayList<>();
+//        list1.addAll(list);
+        return list;
     }
 
     public void constructFirstAndFollowTable() {
         for(int i = rules.size() - 1; i >= 0; i --){
-                firstFollowTable.put(rules.get(i).left, new FirstFollow(getFirst(rules.get(i).left),new ArrayList<Character>()));
+                firstFollowTable.put(rules.get(i).left, new FirstFollow(getFirst(rules.get(i).left),new HashSet<Character>()));
 
 
         }
-        for(int i = rules.size() - 1; i >= 0; i --){
+        for(int i = 0; i < rules.size(); i ++){
+            firstFollowTable.get(rules.get(i).left).setFollow(getFollow(rules.get(i).left));
+
+
+        }
+        for(int i = 0; i < rules.size(); i ++){
             firstFollowTable.get(rules.get(i).left).setFollow(getFollow(rules.get(i).left));
 
 
@@ -161,7 +177,9 @@ public class Parser {
         for(int i = 0; i < r.right.length(); i++) {
             p.stack.add(String.valueOf(r.right.charAt(i)));
         }
-        p.lookahead = firstFollowTable.get(r.left).getFollow();
+        List<Character> list = new ArrayList<>();
+        list.addAll(firstFollowTable.get(r.left).getFollow());
+        p.lookahead = list;
         return p;
     }
 
@@ -281,28 +299,9 @@ public class Parser {
         String symbol;
         String rightSide;
 
-            symbol = rules.get(Integer.parseInt(action.substring(1,action.length()))).left;
-            rightSide = rules.get(Integer.parseInt(action.substring(1,action.length()))).right;
-            resultStack.push(action.substring(1, action.length()));
-
-
-
-//        String peek1 = computationStack.peek().toString();
-//
-//        computationStack.pop();
-//        String peek2 = computationStack.peek().toString();
-//
-//        computationStack.pop();
-        //String newStateAction = table.get(Integer.parseInt(String.valueOf(computationStack.peek()))).get(symbol);
-//       if(newStateAction != null) {
-//            computationStack.push(symbol.charAt(0));
-//            computationStack.push(newStateAction.charAt(1));
-//
-//        } else {
-//           computationStack.push(peek2.charAt(0));
-//           computationStack.push(peek1.charAt(0));
-//
-//       }
+        symbol = rules.get(Integer.parseInt(action.substring(1,action.length()))).left;
+        rightSide = rules.get(Integer.parseInt(action.substring(1,action.length()))).right;
+        resultStack.push(action.substring(1, action.length()));
 
         String rule = "";
 
@@ -341,14 +340,12 @@ public class Parser {
         }
         String peek = null;
         while(!(inputStack.size() == 1 && table.get(Integer.parseInt(String.valueOf(computationStack.peek()))).get("$").equals("accept"))){
-       // while(!(computationStack.peek().equals(peek) && inputStack.size() == 1)) {
             String action = table.get(Integer.parseInt(String.valueOf(computationStack.peek()))).get(String.valueOf(inputStack.peek()));
             System.out.println(action);
             peek = computationStack.peek();
             if(action == null) {
                 System.out.println("reject => the string: "+string+" does not belong to L(G)");
                 return;
-                //break;
             }
             if(action.charAt(0) == 's') {
                 shift(action, computationStack, inputStack, resultStack);
@@ -357,51 +354,6 @@ public class Parser {
 
             }
         }
-//        if(!resultStack.empty()) {
-//            resultStack.pop();
-//        }
-//        List<String> rightsides = new ArrayList<>();
-//        rules.stream().forEach(r -> {
-//            rightsides.add(r.right);
-//        });
-
-//        Integer ruleNumber = 1;
-//        while(!(table.get(Integer.parseInt(String.valueOf(computationStack.peek()))).containsKey("$") && table.get(Integer.parseInt(String.valueOf(computationStack.peek()))).get("$").equals("accept")) && ruleNumber != null) {
-//            ruleNumber = null;
-//            String rule = "";
-//            int lengthParsed = 0;
-//            for (int i = computationStack.size() - 1; i >= 0; i--) {
-//                if (!isNumeric(String.valueOf(computationStack.get(i)))) {
-//                    rule = String.valueOf(computationStack.get(i)) + rule;
-//                    if (rightsides.contains(rule)) {
-//                        ruleNumber = rightsides.indexOf(rule);
-//                        lengthParsed = computationStack.size() - i;
-//                    }
-//                }
-//            }
-//            if(ruleNumber != null) {
-//                resultStack.push(ruleNumber);
-//                while(lengthParsed > 0) {
-//                    computationStack.pop();
-//                    lengthParsed --;
-//                }
-//                final String ruleRight = rightsides.get(ruleNumber);
-//                rules.stream().forEach(r -> {
-//                    if(r.right.equals(ruleRight)) {
-//                        computationStack.push(r.left.charAt(0));
-//                    }
-//                });
-//                Character state  = computationStack.get(computationStack.size() -2);
-//                String action = table.get(Integer.parseInt(String.valueOf(state))).get(String.valueOf(computationStack.peek()));
-//                computationStack.push(action.charAt(1));
-//            }
-//        }
-//        if(ruleNumber == null) {
-//            System.out.println("reject => the string: "+string+" does not belong to L(G)");
-//        } else {
-//            System.out.println(resultStack);
-//
-//        }
         System.out.println(resultStack);
     }
 
@@ -418,7 +370,9 @@ public class Parser {
             for(int i = 0; i < rules.get(0).right.length(); i++) {
                 prod.stack.add(String.valueOf(rules.get(0).right.charAt(i)));
             }
-            prod.lookahead = firstFollowTable.get(rules.get(0).left).getFollow();
+        List<Character> list2 = new ArrayList<>();
+        list2.addAll(firstFollowTable.get(rules.get(0).left).getFollow());
+            prod.lookahead = list2;
             vertex.add(prod);
         vertex.addAll(applyClosureTo(vertex));
         graph.addVertex(vertex, counter);
@@ -453,8 +407,9 @@ public class Parser {
         }
 
         System.out.println(table);
+        System.out.println(firstFollowTable);
 
-        ParseString("a");
+        ParseString("c<a>dea;fg(){fa;a=b;jpa;}");
 
 
     }

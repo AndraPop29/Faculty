@@ -3,7 +3,7 @@
  */
 public class Main {
     public static void main(String[] args) {
-        Parser parser = new Parser("res/contextFreeGrammar.in");
+        Parser parser = new Parser("res/pif.in");
         parser.generateParsingAutomatum();
     }
 }
