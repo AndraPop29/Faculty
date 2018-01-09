@@ -77,8 +77,6 @@ public class Parser {
                 }
             }
         });
-//        List<Character> list1 = new ArrayList<>();
-//        list1.addAll(list);
         return list;
     }
 
@@ -91,14 +89,10 @@ public class Parser {
         }
         for(Rule r : rules) {
             index ++;
-//            if (r.left.equals(left) && index == 0) { // rule #1: if start symbol, add $
-//                list.add('$');
-//            }
-            int listSize = list.size();
             if (r.right.contains(left)) {
                 for (int i = 0; i < r.right.length(); i++) {
                     if (String.valueOf(r.right.charAt(i)).equals(left) && !r.left.equals(left)) {
-                       // if (i == 1) {
+
                             if (i < r.right.length() - 1) {
 
                                 if (!(nonterminals.contains(String.valueOf(r.right.charAt(i + 1))))) { // A → aBb
@@ -109,44 +103,17 @@ public class Parser {
                                 }
                             } else {
                                 try {
-                                    //System.out.println(r.left.charAt(0));
                                     list.addAll(firstFollowTable.get(r.left).getFollow());
                                 } catch(Exception e) {
                                 }
-//                                if(firstFollowTable.get(r.left.charAt(0)).getFollow().size() == 0) {
-//                                    list.addAll(firstFollowTable.get(r.left.charAt(0)).getFollow()); // A → aB
-//
-//                                } else {
-//                                    firstFollowTable.get(r.left.charAt(0)).setFollow(getFollow(r.left));
-//                                    list.addAll(firstFollowTable.get(r.left.charAt(0)).getFollow()); // A → aB
-//
-//                                }
 
                             }
-                      //  }
                     }
                 }
-//                if (list.size() == listSize) {
-//                    for (int i = 0; i < r.right.length(); i++) {
-//                        if (String.valueOf(r.right.charAt(i)).equals(left) &&  !r.left.equals(left)) {
-//                            if (i < r.right.length() - 1) {
-//                                if (!nonterminals.contains(String.valueOf(r.right.charAt(i + 1)))) {
-//
-//                                    list.add(r.right.charAt(i + 1));
-//                                }
-//                            } else {
-//                                //System.out.println(left);
-//                                list.add('$');
-//                            }
-//                        }
-//                    }
-//                }
+
             }
-            //index++;
         }
 
-//        List<Character> list1 = new ArrayList<>();
-//        list1.addAll(list);
         return list;
     }
 
@@ -173,12 +140,6 @@ public class Parser {
             }
         } while (changes);
 
-
-//        for(int i = 0; i < rules.size(); i ++){
-//            firstFollowTable.get(rules.get(i).left).setFollow(getFollow(rules.get(i).left));
-//
-//
-//        }
     }
     public void addNonterminals() {
         rules.stream().forEach(r -> nonterminals.add(r.left));
@@ -317,12 +278,12 @@ public class Parser {
         rightSide = rules.get(Integer.parseInt(action.substring(1,action.length()))).right;
         resultStack.push(action.substring(1, action.length()));
 
+
         String rule = "";
 
         int lengthParsed = 0;
         for (int i = computationStack.size() - 1; i >= 0; i--) {
             if (!isNumeric(String.valueOf(computationStack.get(i)))){
-                //System.out.println(rule);
                 rule = String.valueOf(computationStack.get(i)) + rule;
                 if (rightSide.equals(rule)) {
                     lengthParsed = computationStack.size() - i;
@@ -331,6 +292,7 @@ public class Parser {
         }
         for(int i = 0; i < lengthParsed; i ++) {
             computationStack.pop();
+
         }
 
         String newStateAction = table.get(Integer.parseInt(String.valueOf(computationStack.peek()))).get(symbol);
@@ -366,7 +328,6 @@ public class Parser {
                 break;
             }
 
-            System.out.println(action);
             if(action == null) {
                 System.out.println("reject => the string: "+string+" does not belong to L(G)");
                 return;
@@ -374,7 +335,6 @@ public class Parser {
             if(action.charAt(0) == 's') {
                 shift(action, computationStack, inputStack, resultStack);
             } else {
-                //System.out.println("dsajd");
                 reduce(action, computationStack, inputStack, resultStack);
 
             }
@@ -431,16 +391,20 @@ public class Parser {
                 e.printStackTrace();
             }
         }
-        System.out.println(rules);
+       // System.out.println(firstFollowTable);
 
-        System.out.println(table);
-        System.out.println(firstFollowTable);
+//        for(Map.Entry<Integer, HashMap<String, String>> e : table.entrySet()) {
+//            System.out.println(e);
+//
+//        }
 
-        //ParseString("c<a>dea;fg(){fa;a=b;jpa;}");
-        //ParseString("c<a>");
-        ParseString("c<a>dea;fg(){fa;a=b;lb;}");
+        //ParseString("c<a>dea;fg(){fa;a=b;lb;}"); // valid program string
 
-        ParseString("acccd");
+        //ParseString("c<a>dea;fg(){faa=b;lb;}"); // invalid program string
+
+        // ParseString("acd");
+
+       // ParseString("a+a+a");
 
 
     }
