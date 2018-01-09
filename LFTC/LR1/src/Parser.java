@@ -288,9 +288,7 @@ public class Parser {
                             right += c;
                         }
                         if (right.equals(rules.get(i).right)) {
-                            System.out.println( firstFollowTable.get(rules.get(i).left).getFollow());
                             for (Character c : firstFollowTable.get(rules.get(i).left).getFollow()) {
-                                System.out.println(c);
 
                                 if (i == 0) {
                                     map.put(String.valueOf(c), "accept");
@@ -331,18 +329,14 @@ public class Parser {
                 }
             }
         }
-        System.out.println(lengthParsed);
         for(int i = 0; i < lengthParsed; i ++) {
             computationStack.pop();
         }
-        System.out.println(String.valueOf(computationStack.peek()));
 
         String newStateAction = table.get(Integer.parseInt(String.valueOf(computationStack.peek()))).get(symbol);
         if(newStateAction != null) {
             computationStack.push(symbol);
-            System.out.println(symbol);
             computationStack.push(newStateAction.substring(1,newStateAction.length()));
-            System.out.println(newStateAction.substring(1,newStateAction.length()));
 
         }
     }
@@ -384,7 +378,6 @@ public class Parser {
                 reduce(action, computationStack, inputStack, resultStack);
 
             }
-            System.out.println(table.get(Integer.parseInt(String.valueOf(computationStack.peek()))).get("$"));
 
         }
         System.out.println(resultStack);
@@ -443,8 +436,10 @@ public class Parser {
         System.out.println(table);
         System.out.println(firstFollowTable);
 
-        ParseString("c<a>dea;fg(){fa;a=b;jpa;}");
+        //ParseString("c<a>dea;fg(){fa;a=b;jpa;}");
         //ParseString("c<a>");
+
+        ParseString("acccd");
 
 
     }
