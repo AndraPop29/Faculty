@@ -1,5 +1,4 @@
 import graph.OrientedGraph;
-import sun.security.provider.certpath.Vertex;
 
 import javax.print.DocFlavor;
 import java.io.BufferedReader;
@@ -91,17 +90,18 @@ public class Parser {
             rules2.add(rules.get(i));
         }
         for(Rule r : rules) {
-            if (r.left.equals(left) && index == 0) { // rule #1: if start symbol, add $
-                list.add('$');
-            }
+            index ++;
+//            if (r.left.equals(left) && index == 0) { // rule #1: if start symbol, add $
+//                list.add('$');
+//            }
             int listSize = list.size();
             if (r.right.contains(left)) {
                 for (int i = 0; i < r.right.length(); i++) {
                     if (String.valueOf(r.right.charAt(i)).equals(left) && !r.left.equals(left)) {
-                        if (i == 1) {
+                       // if (i == 1) {
                             if (i < r.right.length() - 1) {
+
                                 if (!(nonterminals.contains(String.valueOf(r.right.charAt(i + 1))))) { // A → aBb
-                                    System.out.println(r.right.charAt(i + 1));
 
                                     list.add(r.right.charAt(i + 1));
                                 } else {
@@ -109,7 +109,8 @@ public class Parser {
                                 }
                             } else {
                                 try {
-                                    list.addAll(firstFollowTable.get(r.left.charAt(0)).getFollow());
+                                    //System.out.println(r.left.charAt(0));
+                                    list.addAll(firstFollowTable.get(r.left).getFollow());
                                 } catch(Exception e) {
                                 }
 //                                if(firstFollowTable.get(r.left.charAt(0)).getFollow().size() == 0) {
@@ -122,26 +123,26 @@ public class Parser {
 //                                }
 
                             }
-                        }
+                      //  }
                     }
                 }
-                if (list.size() == listSize) {
-                    for (int i = 0; i < r.right.length(); i++) {
-                        if (String.valueOf(r.right.charAt(i)).equals(left) &&  !r.left.equals(left)) {
-                            if (i < r.right.length() - 1) {
-                                if (!nonterminals.contains(String.valueOf(r.right.charAt(i + 1)))) {
-
-                                    list.add(r.right.charAt(i + 1));
-                                }
-                            } else {
-                                //System.out.println(left);
-                                list.add('$');
-                            }
-                        }
-                    }
-                }
+//                if (list.size() == listSize) {
+//                    for (int i = 0; i < r.right.length(); i++) {
+//                        if (String.valueOf(r.right.charAt(i)).equals(left) &&  !r.left.equals(left)) {
+//                            if (i < r.right.length() - 1) {
+//                                if (!nonterminals.contains(String.valueOf(r.right.charAt(i + 1)))) {
+//
+//                                    list.add(r.right.charAt(i + 1));
+//                                }
+//                            } else {
+//                                //System.out.println(left);
+//                                list.add('$');
+//                            }
+//                        }
+//                    }
+//                }
             }
-            index++;
+            //index++;
         }
 
 //        List<Character> list1 = new ArrayList<>();
@@ -155,17 +156,29 @@ public class Parser {
 
 
         }
-        for(int i = 0; i < rules.size(); i ++){
-            firstFollowTable.get(rules.get(i).left).setFollow(getFollow(rules.get(i).left));
+        Set set = new HashSet();
+        set.add('$');
+        firstFollowTable.get(rules.get(0).left).setFollow(set);
+
+        boolean changes;
+        do {
+            changes = false;
+            for(int i = 1; i < rules.size(); i ++){
+                Set<Character> followBefore =  firstFollowTable.get(rules.get(i).left).getFollow();
+                firstFollowTable.get(rules.get(i).left).setFollow(getFollow(rules.get(i).left));
+                Set<Character> followAfter =  firstFollowTable.get(rules.get(i).left).getFollow();
+                if(followBefore.size() != followAfter.size()) {
+                    changes = true;
+                }
+            }
+        } while (changes);
 
 
-        }
-        for(int i = 0; i < rules.size(); i ++){
-            firstFollowTable.get(rules.get(i).left).setFollow(getFollow(rules.get(i).left));
-
-
-        }
-        firstFollowTable.get(rules.get(0).left).setFollow(getFollow(rules.get(0).right));
+//        for(int i = 0; i < rules.size(); i ++){
+//            firstFollowTable.get(rules.get(i).left).setFollow(getFollow(rules.get(i).left));
+//
+//
+//        }
     }
     public void addNonterminals() {
         rules.stream().forEach(r -> nonterminals.add(r.left));
@@ -275,7 +288,10 @@ public class Parser {
                             right += c;
                         }
                         if (right.equals(rules.get(i).right)) {
+                            System.out.println( firstFollowTable.get(rules.get(i).left).getFollow());
                             for (Character c : firstFollowTable.get(rules.get(i).left).getFollow()) {
+                                System.out.println(c);
+
                                 if (i == 0) {
                                     map.put(String.valueOf(c), "accept");
                                 } else {
@@ -307,20 +323,26 @@ public class Parser {
 
         int lengthParsed = 0;
         for (int i = computationStack.size() - 1; i >= 0; i--) {
-            if (!isNumeric(String.valueOf(computationStack.get(i)))) {
+            if (!isNumeric(String.valueOf(computationStack.get(i)))){
+                //System.out.println(rule);
                 rule = String.valueOf(computationStack.get(i)) + rule;
                 if (rightSide.equals(rule)) {
                     lengthParsed = computationStack.size() - i;
                 }
             }
         }
+        System.out.println(lengthParsed);
         for(int i = 0; i < lengthParsed; i ++) {
             computationStack.pop();
         }
+        System.out.println(String.valueOf(computationStack.peek()));
+
         String newStateAction = table.get(Integer.parseInt(String.valueOf(computationStack.peek()))).get(symbol);
         if(newStateAction != null) {
-            computationStack.push(symbol.charAt(0));
+            computationStack.push(symbol);
+            System.out.println(symbol);
             computationStack.push(newStateAction.substring(1,newStateAction.length()));
+            System.out.println(newStateAction.substring(1,newStateAction.length()));
 
         }
     }
@@ -339,10 +361,18 @@ public class Parser {
             inputStack.push(string.substring(i, i + 1));
         }
         String peek = null;
-        while(!(inputStack.size() == 1 && table.get(Integer.parseInt(String.valueOf(computationStack.peek()))).get("$").equals("accept"))){
+        while(true){
             String action = table.get(Integer.parseInt(String.valueOf(computationStack.peek()))).get(String.valueOf(inputStack.peek()));
+            if (inputStack.size() == 1 && action == null) {
+                System.out.println("reject => the string: "+string+" does not belong to L(G)");
+                return;
+            }
+
+            if(inputStack.size() == 1 && table.get(Integer.parseInt(String.valueOf(computationStack.peek()))).get("$").equals("accept")) {
+                break;
+            }
+
             System.out.println(action);
-            peek = computationStack.peek();
             if(action == null) {
                 System.out.println("reject => the string: "+string+" does not belong to L(G)");
                 return;
@@ -350,9 +380,12 @@ public class Parser {
             if(action.charAt(0) == 's') {
                 shift(action, computationStack, inputStack, resultStack);
             } else {
+                //System.out.println("dsajd");
                 reduce(action, computationStack, inputStack, resultStack);
 
             }
+            System.out.println(table.get(Integer.parseInt(String.valueOf(computationStack.peek()))).get("$"));
+
         }
         System.out.println(resultStack);
     }
@@ -405,11 +438,13 @@ public class Parser {
                 e.printStackTrace();
             }
         }
+        System.out.println(rules);
 
         System.out.println(table);
         System.out.println(firstFollowTable);
 
         ParseString("c<a>dea;fg(){fa;a=b;jpa;}");
+        //ParseString("c<a>");
 
 
     }
