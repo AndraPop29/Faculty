@@ -1,6 +1,7 @@
 import graph.OrientedGraph;
 
 import javax.print.DocFlavor;
+import java.awt.peer.ScrollbarPeer;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -145,23 +146,33 @@ public class Parser {
         rules.stream().forEach(r -> nonterminals.add(r.left));
     }
 
-    public Production getProduction(Rule r) {
+    public Production getProduction(Rule r, String next) {
         Production p = new Production();
         p.nonterminal = r.left;
         for(int i = 0; i < r.right.length(); i++) {
             p.stack.add(String.valueOf(r.right.charAt(i)));
         }
         List<Character> list = new ArrayList<>();
-        list.addAll(firstFollowTable.get(r.left).getFollow());
+        // list.addAll(firstFollowTable.get(r.left).getFollow());
+        if(next == "") {
+            list.addAll(firstFollowTable.get(r.left).getFollow());
+        } else {
+            if(nonterminals.contains(next)) {
+                list.addAll(firstFollowTable.get(next).getFirst());
+            } else {
+                list.add(next.charAt(0));
+            }
+        }
+
         p.lookahead = list;
         return p;
     }
 
-    public List<Production> getProductionsFor(String nonterminal) {
+    public List<Production> getProductionsFor(String nonterminal, String next) {
         List<Production> productions = new ArrayList<>();
         rules.stream().forEach(r -> {
             if(r.left.equals(nonterminal)) {
-                Production p = getProduction(r);
+                Production p = getProduction(r, next);
                 productions.add(p);
             }
         });
@@ -175,9 +186,15 @@ public class Parser {
             if(p.dotPosition < p.stack.size()) {
                 if(nonterminals.contains(p.stack.get(p.dotPosition))) {
                     if(!nonTerm.contains(p.stack.get(p.dotPosition))) {
-                        productions.addAll(getProductionsFor(p.stack.get(p.dotPosition)));
+                        if(p.dotPosition + 1 < p.stack.size()) {
+                            productions.addAll(getProductionsFor(p.stack.get(p.dotPosition), p.stack.get(p.dotPosition + 1)));
+
+                        } else {
+                            productions.addAll(getProductionsFor(p.stack.get(p.dotPosition), ""));
+                        }
                         nonTerm.add(p.stack.get(p.dotPosition));
                     }
+
                     productions.addAll(applyClosureTo(productions));
                 }
 
@@ -214,9 +231,13 @@ public class Parser {
             }
             String cost = v.stack.get(v.dotPosition);
             List<Production> prodForCost = getAllForCost(cost, vertex);
+
             List<Production> newVertex = new ArrayList<>();
             newVertex.addAll(prodForCost);
             newVertex.addAll(applyClosureTo(prodForCost));
+
+//            System.out.println(prodForCost);
+//            System.out.println(applyClosureTo(prodForCost));
 
             if(!graph.contains(newVertex)) {
                 counter = counter + 1;
@@ -226,7 +247,6 @@ public class Parser {
             if(!costList.contains(cost)) {
                 costList.add(cost);
                 try {
-                    //System.out.println(newVertex.toString());
                     graph.addEdge(vertex,newVertex,cost);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -358,9 +378,11 @@ public class Parser {
             }
         List<Character> list2 = new ArrayList<>();
         list2.addAll(firstFollowTable.get(rules.get(0).left).getFollow());
-            prod.lookahead = list2;
-            vertex.add(prod);
+        prod.lookahead = list2;
+        vertex.add(prod);
         vertex.addAll(applyClosureTo(vertex));
+
+
         graph.addVertex(vertex, counter);
         List<List<Production>> vertexList = addNeighbors(graph, vertex);
         while (vertexList.size() > 0) {
@@ -398,13 +420,13 @@ public class Parser {
 //
 //        }
 
-        //ParseString("c<a>dea;fg(){fa;a=b;lb;}"); // valid program string
+       ParseString("c<a>dea;fg(){fa;a=b;lb;}"); // valid program string
 
-        //ParseString("c<a>dea;fg(){faa=b;lb;}"); // invalid program string
+      //  ParseString("c<a>dea;fg(){faa=b;lb;}"); // invalid program string
 
-        // ParseString("acd");
+       //  ParseString("accd");
 
-       // ParseString("a+a+a");
+     //   ParseString("a+a+a");
 
 
     }
