@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+int main(){
+    int a; 
+    int c;
+    cin>>a;
+	cout<<a;
+    c=a+2;
+    cout<<c;
+    return 0;
+}

@@ -1,0 +1,3 @@
+﻿  main.cpp
+c:\faculta\dsa\iteratorbt\iteratorbt\main.cpp(32): error C2327: 'BinarySearchTree::root': is not a type name, static, or enumerator
+c:\faculta\dsa\iteratorbt\iteratorbt\main.cpp(32): error C2065: 'root': undeclared identifier

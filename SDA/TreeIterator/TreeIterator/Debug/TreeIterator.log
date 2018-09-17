@@ -1,0 +1,24 @@
+﻿  main.cpp
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(65): error C2365: 'Tree<T>::root': redefinition; previous definition was 'data member'
+  c:\faculta\dsa\treeiterator\treeiterator\main.cpp(17): note: see declaration of 'Tree<T>::root'
+  c:\faculta\dsa\treeiterator\treeiterator\main.cpp(81): note: see reference to class template instantiation 'Tree<T>' being compiled
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(66): error C2059: syntax error: 'return'
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(66): error C2238: unexpected token(s) preceding ';'
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(68): error C2146: syntax error: missing ';' before identifier 'iterator'
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(65): error C2207: 'Tree<T>::root': a member of a class template cannot acquire a function type
+  c:\faculta\dsa\treeiterator\treeiterator\main.cpp(84): note: see reference to class template instantiation 'Tree<int>' being compiled
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(65): error C2365: 'Tree<int>::root': redefinition; previous definition was 'data member'
+  c:\faculta\dsa\treeiterator\treeiterator\main.cpp(17): note: see declaration of 'Tree<int>::root'
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(87): error C2064: term does not evaluate to a function taking 0 arguments
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(87): error C2512: 'Tree<int>::iterator': no appropriate default constructor available
+  c:\faculta\dsa\treeiterator\treeiterator\main.cpp(19): note: see declaration of 'Tree<int>::iterator'
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(88): error C2039: 'appendChild': is not a member of 'Tree<int>'
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(89): error C2039: 'appendChild': is not a member of 'Tree<int>'
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(89): error C2512: 'Tree<int>::iterator': no appropriate default constructor available
+  c:\faculta\dsa\treeiterator\treeiterator\main.cpp(19): note: see declaration of 'Tree<int>::iterator'
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(90): error C2039: 'appendChild': is not a member of 'Tree<int>'
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(92): error C2039: 'appendChild': is not a member of 'Tree<int>'
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(93): error C2039: 'appendChild': is not a member of 'Tree<int>'
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(96): error C3312: no callable 'begin' function found for type 'Tree<int>'
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(96): error C3312: no callable 'end' function found for type 'Tree<int>'
+c:\faculta\dsa\treeiterator\treeiterator\main.cpp(97): error C2065: 'v': undeclared identifier

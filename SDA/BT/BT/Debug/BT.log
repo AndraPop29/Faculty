@@ -1,0 +1,131 @@
+﻿  main.cpp
+c:\faculta\dsa\bt\bt\bt.h(110): error C3646: 'getNext': unknown override specifier
+c:\faculta\dsa\bt\bt\bt.h(110): error C2059: syntax error: '('
+c:\faculta\dsa\bt\bt\bt.h(110): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\faculta\dsa\bt\bt\bt.h(123): error C2143: syntax error: missing ';' before '}'
+c:\faculta\dsa\bt\bt\bt.h(123): error C2059: syntax error: '}'
+c:\faculta\dsa\bt\bt\bt.h(104): error C2440: 'initializing': cannot convert from 'SuccessorIteration *const ' to 'Nod'
+  c:\faculta\dsa\bt\bt\bt.h(104): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\faculta\dsa\bt\bt\bt.h(105): error C2819: type 'Nod' does not have an overloaded member 'operator ->'
+  c:\faculta\dsa\bt\bt\bt.h(15): note: see declaration of 'Nod'
+  c:\faculta\dsa\bt\bt\bt.h(105): note: did you intend to use '.' instead?
+c:\faculta\dsa\bt\bt\bt.h(105): error C2232: '->Nod::st': left operand has 'class' type, use '.'
+c:\faculta\dsa\bt\bt\bt.h(105): error C2065: 'NULL': undeclared identifier
+c:\faculta\dsa\bt\bt\bt.h(106): error C2819: type 'Nod' does not have an overloaded member 'operator ->'
+  c:\faculta\dsa\bt\bt\bt.h(15): note: see declaration of 'Nod'
+  c:\faculta\dsa\bt\bt\bt.h(106): note: did you intend to use '.' instead?
+c:\faculta\dsa\bt\bt\bt.h(106): error C2232: '->Nod::st': left operand has 'class' type, use '.'
+c:\faculta\dsa\bt\bt\dll.h(4): error C2143: syntax error: missing ';' before '{'
+c:\faculta\dsa\bt\bt\dll.h(4): error C2447: '{': missing function header (old-style formal list?)
+c:\faculta\dsa\bt\bt\dll.h(14): error C2143: syntax error: missing ';' before '<'
+  c:\faculta\dsa\bt\bt\dll.h(56): note: see reference to class template instantiation 'DoublyLinkedList<T>' being compiled
+c:\faculta\dsa\bt\bt\dll.h(14): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\faculta\dsa\bt\bt\dll.h(15): error C2238: unexpected token(s) preceding ';'
+c:\faculta\dsa\bt\bt\dll.h(26): error C2143: syntax error: missing ';' before '<'
+c:\faculta\dsa\bt\bt\dll.h(26): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\faculta\dsa\bt\bt\dll.h(26): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\faculta\dsa\bt\bt\dll.h(27): error C2143: syntax error: missing ';' before '<'
+c:\faculta\dsa\bt\bt\dll.h(27): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\faculta\dsa\bt\bt\dll.h(27): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\faculta\dsa\bt\bt\dll.h(48): error C2143: syntax error: missing ';' before '<'
+c:\faculta\dsa\bt\bt\dll.h(48): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\faculta\dsa\bt\bt\dll.h(48): error C2238: unexpected token(s) preceding ';'
+c:\faculta\dsa\bt\bt\dll.h(49): error C2061: syntax error: identifier 'Node'
+c:\faculta\dsa\bt\bt\dll.h(50): error C2061: syntax error: identifier 'Node'
+c:\faculta\dsa\bt\bt\dll.h(51): error C2061: syntax error: identifier 'Node'
+c:\faculta\dsa\bt\bt\dll.h(52): error C2061: syntax error: identifier 'Node'
+c:\faculta\dsa\bt\bt\dll.h(53): error C2061: syntax error: identifier 'Node'
+c:\faculta\dsa\bt\bt\dll.h(147): error C2988: unrecognizable template declaration/definition
+c:\faculta\dsa\bt\bt\dll.h(147): error C2143: syntax error: missing ';' before '<'
+c:\faculta\dsa\bt\bt\dll.h(147): error C2059: syntax error: '<'
+c:\faculta\dsa\bt\bt\dll.h(147): error C2065: 'T': undeclared identifier
+c:\faculta\dsa\bt\bt\dll.h(147): error C2923: 'DoublyLinkedList': 'T' is not a valid template type argument for parameter 'T'
+c:\faculta\dsa\bt\bt\dll.h(157): error C2065: 'T': undeclared identifier
+c:\faculta\dsa\bt\bt\dll.h(157): error C2923: 'DoublyLinkedList': 'T' is not a valid template type argument for parameter 'T'
+c:\faculta\dsa\bt\bt\dll.h(158): error C2143: syntax error: missing ';' before '{'
+c:\faculta\dsa\bt\bt\dll.h(158): error C2447: '{': missing function header (old-style formal list?)
+c:\faculta\dsa\bt\bt\dll.h(179): error C2065: 'Node': undeclared identifier
+c:\faculta\dsa\bt\bt\dll.h(179): error C2065: 'newNode': undeclared identifier
+c:\faculta\dsa\bt\bt\dll.h(179): error C2350: 'DoublyLinkedList<T>::insertAtTail' is not a static member
+  c:\faculta\dsa\bt\bt\dll.h(179): note: see declaration of 'DoublyLinkedList<T>::insertAtTail'
+c:\faculta\dsa\bt\bt\dll.h(195): error C2065: 'Node': undeclared identifier
+c:\faculta\dsa\bt\bt\dll.h(195): error C2065: 'node': undeclared identifier
+c:\faculta\dsa\bt\bt\dll.h(195): error C2065: 'newNode': undeclared identifier
+c:\faculta\dsa\bt\bt\dll.h(195): error C2470: 'DoublyLinkedList<T>::insertBefore': looks like a function definition, but there is no parameter list; skipping apparent body
+c:\faculta\dsa\bt\bt\dll.h(195): error C2072: 'DoublyLinkedList<T>::insertBefore': initialization of a function
+c:\faculta\dsa\bt\bt\dll.h(218): error C2065: 'Node': undeclared identifier
+c:\faculta\dsa\bt\bt\dll.h(218): error C2065: 'node': undeclared identifier
+c:\faculta\dsa\bt\bt\dll.h(218): error C2065: 'newNode': undeclared identifier
+c:\faculta\dsa\bt\bt\dll.h(218): error C2470: 'DoublyLinkedList<T>::insertAfter': looks like a function definition, but there is no parameter list; skipping apparent body
+c:\faculta\dsa\bt\bt\dll.h(218): error C2072: 'DoublyLinkedList<T>::insertAfter': initialization of a function
+c:\faculta\dsa\bt\bt\dll.h(240): error C2065: 'Node': undeclared identifier
+c:\faculta\dsa\bt\bt\dll.h(240): error C2065: 'node': undeclared identifier
+c:\faculta\dsa\bt\bt\dll.h(240): error C2470: 'DoublyLinkedList<T>::deleteNode': looks like a function definition, but there is no parameter list; skipping apparent body
+c:\faculta\dsa\bt\bt\dll.h(240): error C2072: 'DoublyLinkedList<T>::deleteNode': initialization of a function
+c:\faculta\dsa\bt\bt\main.cpp(38): error C2079: 'i' uses undefined class 'Iterator'
+c:\faculta\dsa\bt\bt\main.cpp(38): error C2027: use of undefined type 'Iterator'
+  c:\faculta\dsa\bt\bt\bt.h(10): note: see declaration of 'Iterator'
+c:\faculta\dsa\bt\bt\main.cpp(38): error C2440: 'initializing': cannot convert from 'Iterator' to 'int'
+  c:\faculta\dsa\bt\bt\main.cpp(38): note: Source or target has incomplete type
+c:\faculta\dsa\bt\bt\main.cpp(39): error C2228: left of '.element' must have class/struct/union
+  c:\faculta\dsa\bt\bt\main.cpp(39): note: type is 'int'
+c:\faculta\dsa\bt\bt\main.cpp(40): error C2228: left of '.valid' must have class/struct/union
+  c:\faculta\dsa\bt\bt\main.cpp(40): note: type is 'int'
+  Generating Code...
+  Compiling...
+  BT.cpp
+c:\faculta\dsa\bt\bt\bt.h(110): error C3646: 'getNext': unknown override specifier
+c:\faculta\dsa\bt\bt\bt.h(110): error C2059: syntax error: '('
+c:\faculta\dsa\bt\bt\bt.h(110): error C2334: unexpected token(s) preceding '{'; skipping apparent function body
+c:\faculta\dsa\bt\bt\bt.h(123): error C2143: syntax error: missing ';' before '}'
+c:\faculta\dsa\bt\bt\bt.h(123): error C2059: syntax error: '}'
+c:\faculta\dsa\bt\bt\bt.h(104): error C2440: 'initializing': cannot convert from 'SuccessorIteration *const ' to 'Nod'
+  c:\faculta\dsa\bt\bt\bt.h(104): note: No constructor could take the source type, or constructor overload resolution was ambiguous
+c:\faculta\dsa\bt\bt\bt.h(105): error C2819: type 'Nod' does not have an overloaded member 'operator ->'
+  c:\faculta\dsa\bt\bt\bt.h(15): note: see declaration of 'Nod'
+  c:\faculta\dsa\bt\bt\bt.h(105): note: did you intend to use '.' instead?
+c:\faculta\dsa\bt\bt\bt.h(105): error C2232: '->Nod::st': left operand has 'class' type, use '.'
+c:\faculta\dsa\bt\bt\bt.h(105): error C2065: 'NULL': undeclared identifier
+c:\faculta\dsa\bt\bt\bt.h(106): error C2819: type 'Nod' does not have an overloaded member 'operator ->'
+  c:\faculta\dsa\bt\bt\bt.h(15): note: see declaration of 'Nod'
+  c:\faculta\dsa\bt\bt\bt.h(106): note: did you intend to use '.' instead?
+c:\faculta\dsa\bt\bt\bt.h(106): error C2232: '->Nod::st': left operand has 'class' type, use '.'
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2381): error C2143: syntax error: missing ';' before '{'
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\sal.h(2381): error C2447: '{': missing function header (old-style formal list?)
+c:\faculta\dsa\bt\bt\bt.cpp(148): error C2027: use of undefined type 'Iterator'
+  c:\faculta\dsa\bt\bt\bt.h(10): note: see declaration of 'Iterator'
+c:\faculta\dsa\bt\bt\bt.cpp(148): error C2059: syntax error: 'const'
+c:\faculta\dsa\bt\bt\bt.cpp(148): error C2065: 'ab': undeclared identifier
+c:\faculta\dsa\bt\bt\bt.cpp(148): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+c:\faculta\dsa\bt\bt\bt.cpp(148): error C2448: 'arb': function-style initializer appears to be a function definition
+c:\faculta\dsa\bt\bt\bt.cpp(152): error C2027: use of undefined type 'Iterator'
+  c:\faculta\dsa\bt\bt\bt.h(10): note: see declaration of 'Iterator'
+c:\faculta\dsa\bt\bt\bt.cpp(153): error C2065: 'curent': undeclared identifier
+c:\faculta\dsa\bt\bt\bt.cpp(153): error C2228: left of '.rad' must have class/struct/union
+  c:\faculta\dsa\bt\bt\bt.cpp(153): note: type is 'int'
+c:\faculta\dsa\bt\bt\bt.cpp(156): error C2027: use of undefined type 'Iterator'
+  c:\faculta\dsa\bt\bt\bt.h(10): note: see declaration of 'Iterator'
+c:\faculta\dsa\bt\bt\bt.cpp(158): error C2065: 'curent': undeclared identifier
+c:\faculta\dsa\bt\bt\bt.cpp(158): error C2227: left of '->dr' must point to class/struct/union/generic type
+  c:\faculta\dsa\bt\bt\bt.cpp(158): note: type is 'unknown-type'
+c:\faculta\dsa\bt\bt\bt.cpp(160): error C2027: use of undefined type 'Iterator'
+  c:\faculta\dsa\bt\bt\bt.h(10): note: see declaration of 'Iterator'
+c:\faculta\dsa\bt\bt\bt.cpp(162): error C2065: 'curent': undeclared identifier
+c:\faculta\dsa\bt\bt\bt.cpp(162): error C2227: left of '->st' must point to class/struct/union/generic type
+  c:\faculta\dsa\bt\bt\bt.cpp(162): note: type is 'unknown-type'
+c:\faculta\dsa\bt\bt\bt.cpp(165): error C2027: use of undefined type 'Iterator'
+  c:\faculta\dsa\bt\bt\bt.h(10): note: see declaration of 'Iterator'
+c:\faculta\dsa\bt\bt\bt.cpp(165): error C2270: 'valid': modifiers not allowed on nonmember functions
+c:\faculta\dsa\bt\bt\bt.cpp(166): error C2065: 'curent': undeclared identifier
+c:\faculta\dsa\bt\bt\bt.cpp(169): error C2027: use of undefined type 'Iterator'
+  c:\faculta\dsa\bt\bt\bt.h(10): note: see declaration of 'Iterator'
+c:\faculta\dsa\bt\bt\bt.cpp(169): error C2270: 'element': modifiers not allowed on nonmember functions
+c:\faculta\dsa\bt\bt\bt.cpp(170): error C2065: 'curent': undeclared identifier
+c:\faculta\dsa\bt\bt\bt.cpp(170): error C2227: left of '->e' must point to class/struct/union/generic type
+  c:\faculta\dsa\bt\bt\bt.cpp(170): note: type is 'unknown-type'
+c:\faculta\dsa\bt\bt\bt.cpp(173): error C2027: use of undefined type 'Iterator'
+  c:\faculta\dsa\bt\bt\bt.h(10): note: see declaration of 'Iterator'
+c:\faculta\dsa\bt\bt\bt.cpp(173): error C2079: 'AB::radi' uses undefined class 'Iterator'
+c:\faculta\dsa\bt\bt\bt.cpp(174): error C2514: 'Iterator': class has no constructors
+  c:\faculta\dsa\bt\bt\bt.h(10): note: see declaration of 'Iterator'
+  Generating Code...

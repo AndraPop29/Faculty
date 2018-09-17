@@ -1,0 +1,20 @@
+D:/Personal Info/Documents/Visual Studio 2015/Projects/PPD/PPD-Lab5/PPD-Lab5/bin/Debug/PPD-Lab5.exe.config
+D:/Personal Info/Documents/Visual Studio 2015/Projects/PPD/PPD-Lab5/PPD-Lab5/bin/Debug/PPD-Lab5.exe
+D:/Personal Info/Documents/Visual Studio 2015/Projects/PPD/PPD-Lab5/PPD-Lab5/bin/Debug/PPD-Lab5.pdb
+D:/Personal Info/Documents/Visual Studio 2015/Projects/PPD/PPD-Lab5/PPD-Lab5/obj/Debug/PPD-Lab5.csprojResolveAssemblyReference.cache
+D:/Personal Info/Documents/Visual Studio 2015/Projects/PPD/PPD-Lab5/PPD-Lab5/obj/Debug/PPD-Lab5.exe
+D:/Personal Info/Documents/Visual Studio 2015/Projects/PPD/PPD-Lab5/PPD-Lab5/obj/Debug/PPD-Lab5.pdb
+/Users/andrapop/Faculty/PPD-Lab5/PPD-Lab5/bin/Debug/PPD-Lab5.exe.config
+/Users/andrapop/Faculty/PPD-Lab5/PPD-Lab5/bin/Debug/PPD-Lab5.exe
+/Users/andrapop/Faculty/PPD-Lab5/PPD-Lab5/bin/Debug/PPD-Lab5.pdb
+/Users/andrapop/Faculty/PPD-Lab5/PPD-Lab5/obj/Debug/PPD-Lab5.csprojResolveAssemblyReference.cache
+/Users/andrapop/Faculty/PPD-Lab5/PPD-Lab5/obj/Debug/PPD-Lab5.csproj.CoreCompileInputs.cache
+/Users/andrapop/Faculty/PPD-Lab5/PPD-Lab5/obj/Debug/PPD-Lab5.exe
+/Users/andrapop/Faculty/PPD-Lab5/PPD-Lab5/obj/Debug/PPD-Lab5.pdb
+/Users/andrapop/Faculty/PPD/PPD-Lab5/PPD-Lab5/bin/Debug/PPD-Lab5.exe.config
+/Users/andrapop/Faculty/PPD/PPD-Lab5/PPD-Lab5/bin/Debug/PPD-Lab5.exe
+/Users/andrapop/Faculty/PPD/PPD-Lab5/PPD-Lab5/bin/Debug/PPD-Lab5.pdb
+/Users/andrapop/Faculty/PPD/PPD-Lab5/PPD-Lab5/obj/Debug/PPD-Lab5.csprojResolveAssemblyReference.cache
+/Users/andrapop/Faculty/PPD/PPD-Lab5/PPD-Lab5/obj/Debug/PPD-Lab5.csproj.CoreCompileInputs.cache
+/Users/andrapop/Faculty/PPD/PPD-Lab5/PPD-Lab5/obj/Debug/PPD-Lab5.exe
+/Users/andrapop/Faculty/PPD/PPD-Lab5/PPD-Lab5/obj/Debug/PPD-Lab5.pdb

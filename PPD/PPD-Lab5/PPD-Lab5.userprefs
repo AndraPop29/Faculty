@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{0D853150-5C6E-4B9C-949A-37162ED57E3C}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PPD-Lab5/Tasks.cs">
+    <Files>
+      <File FileName="PPD-Lab5/SimpleCallbacks.cs" Line="149" Column="43" />
+      <File FileName="PPD-Lab5/Tasks.cs" Line="32" Column="16" />
+      <File FileName="PPD-Lab5/Programe.cs" Line="49" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.PPD-Lab5 PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

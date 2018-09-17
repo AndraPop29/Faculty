@@ -1,0 +1,1 @@
+; Aceeasi cerinta ca la siruri1
