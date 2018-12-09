@@ -187,6 +187,14 @@ let rec inverse_tuple list =
     [] -> [] 
   | (s,i)::tl -> (i,s)::(inverse_tuple tl);;
 
+(* Checks if the two lists of parameters match (they have the same length and types in the same order)*)
+
+let rec match_prms l1 l2 =
+  match (l1, l2) with
+    ([],[]) -> true
+  | ((t1,n1)::tr, (t2,n2)::tl) -> if t1 = t2 then match_prms tr tl else false
+  | _ -> false;;
+
 (* Returns the class inherited by class1, if it exists
    and Tclass("") otherwise
 *)
@@ -400,14 +408,6 @@ let rec wellTypedClass progr env cls =
   match cls with
     ClassDecl(_,_,_,methods) -> (wellTypedMethods progr env methods);;
 
-(* Checks if the two lists of parameters match (they have the same length and types in the same order)*)
-
-let rec match_prms l1 l2 =
-  match (l1, l2) with
-    ([],[]) -> true
-  | ((t1,n1)::tr, (t2,n2)::tl) -> if t1 = t2 then match_prms tr tl else false
-  | _ -> false;;
-
 (* Checks if there are no duplicate class definitions in program 
    classesParsed - represents the classes already checked*)
 
@@ -525,7 +525,7 @@ let rec check_method_overriding methods1 methods2NotTraversed methods2 p =
 
 let rec inherited_methods classN p =  
   match p with
-    Progr([]) -> raise (Exception classN)
+    Progr([]) -> raise (Exception "Inheritance not ok")
   | Progr((clasa, ClassDecl(_,_,_,MethDeclList(methods)))::tr) -> if clasa = classN then methods else (inherited_methods classN (Progr(tr)));;
 
 (* Checks if the methods from class `cls` override the ones from the base class properly *)
@@ -549,80 +549,6 @@ let rec well_typed_program p env =
   well_founded_classes p && well_typed_classes p p env;;
 
 printf "Program well typed: %b" (well_typed_program program [("c", Tprim(Tint)); ("z", Tclass("A")); ("o1", Tclass("B")); ("o2", Tclass("A")); ("o3", Tclass("A"))]);
-
-(* printType (wellTyped program [("v", (Tclass("A"))); ("b", (Tprim(Tint))); ("c", (Tclass("B"))); ("a", (Tprim(Tbool)))] (NewInstance("A", (VarList([(Var "a")])))));;  *)
-
-(* Checks if the method "meth" is present in the list l *)
-
-(* let rec methExists l meth = 
-   match (l,meth) with
-    (([]), MethDecl(_)) -> false 
-   | (((MethDecl(tCur,nCur,prmsCur,_))::tr), MethDecl(t,n,prms,_)) -> if tCur = t && nCur = n && match_prms prmsCur prms = true then true else (methExists tr meth);; *)
-
-
-
-(* 
-let rec findit v e = 
-  match e with
-    (Bvar(x, y, exp)) when y = v -> x
-  | (Bvar(x, y, exp)) -> findit v (Bnvar(exp))
-  | (Bnvar(Blk(Bvar(x, y, exp)))) when y = v -> x
-  | (Bnvar(Blk(Bvar(x, y, exp)))) -> findit v (Bnvar(exp))
-  | (Bnvar(Seq(exp1, exp2))) when (findit v (Bnvar(exp1))) = Tbot -> findit v (Bnvar(exp2))
-  | (Bnvar(Seq(exp1, exp2))) when (findit v (Bnvar(exp2))) = Tbot -> findit v (Bnvar(exp1))
-  | (Bnvar(If(_,exp1, exp2))) when (findit v exp1) = Tbot -> findit v exp2
-  | (Bnvar(If(_,exp1, exp2))) when (findit v exp2) = Tbot -> findit v exp1
-  | (Bnvar(WhileVar(_, exp))) -> findit v (Bnvar(exp))
-  | _ -> Tbot ;;  *)
-
-
-(* let rec firstMethExp methods v = 
-   match methods with 
-    MethDeclList([]) -> Tbot
-   |(MethDeclList((MethDecl(_,_,_,exp))::tl)) -> if findit v exp <> Tbot then findit v exp
-    else firstMethExp (MethDeclList(tl)) v *)
-
-(* let rec findType x p =
-   match p with
-    (Progr([])) -> Tbot
-   | Progr((_, ClassDecl(_,_,_,methods))::tr) -> if firstMethExp methods x = Tbot then findType x (Progr(tr))
-    else firstMethExp methods x *)
-
-
-(* let rec TypeCheckExp p env exp = *)
-
-
-
-(* printType (findType "o2" program);; *)
-
-(* Search list of tuples and return a class *)
-
-(* let rec find_class string_name tuples_list =
-   match tuples_list with
-    [] -> Tclass("")
-   |(s, i)::tl -> if s = string_name then i
-    else find_class string_name tl *)
-
-
-(* 
-let rec check_inheritance class1 class2 program =
-  match program with
-    (Progr([])) -> false
-  |Progr((_,(ClassDecl(s, i,_,_)))::tl) -> if Tclass(s) = class1 && Tclass(i) = class2 then true
-    else check_inheritance class1 class2 (Progr(tl));;  *)
-
-
-
-
-
-
-(* find_tuple (Tclass("A")) (Tclass("D")) (Progr[("A",(ClassDecl("A", "D",(FldDeclList([])),(MethDeclList([]))))); ("A",(ClassDecl("A", "B",(FldDeclList([])),(MethDeclList([])))))]);;  *)
-(* let fields = fieldList (Progr([("B", (ClassDecl("B", "A", (FldDeclList([FldDecl((Tprim(Tint)), "b")])), MethDeclList([]))))])) "A";;  *)
-
-
-
-
-
 
 
 
