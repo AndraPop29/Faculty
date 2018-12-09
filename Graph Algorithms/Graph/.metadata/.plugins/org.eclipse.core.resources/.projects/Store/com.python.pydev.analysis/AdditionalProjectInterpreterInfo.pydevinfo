@@ -1,0 +1,80 @@
+-- VERSION_4
+-- START DISKCACHE_2
+C:\FP\.metadata\.plugins\org.eclipse.core.resources\.projects\Store\com.python.pydev.analysis\v2_indexcache
+App.App|1454439297783871000|C:\Faculta\FP\Store\App\App.py
+Products.__init__|1454421704096679000|C:\Faculta\FP\Store\Products\__init__.py
+UI.UI|1454492121871700000|C:\Faculta\FP\Store\UI\UI.py
+Tests.PyUnit|1454495653906845000|C:\Faculta\FP\Store\Tests\PyUnit.py
+Tests.__init__|1454494119315932000|C:\Faculta\FP\Store\Tests\__init__.py
+Controller.Controller|1454493270513877000|C:\Faculta\FP\Store\Controller\Controller.py
+Controller.__init__|1454422166037038000|C:\Faculta\FP\Store\Controller\__init__.py
+Repository.Repository|1454497572575207000|C:\Faculta\FP\Store\Repository\Repository.py
+Repository.__init__|1454422141104952000|C:\Faculta\FP\Store\Repository\__init__.py
+UI.__init__|1454422194656551000|C:\Faculta\FP\Store\UI\__init__.py
+Tests.TestStart|1454494855362877000|C:\Faculta\FP\Store\Tests\TestStart.py
+Products.Products|1454492403504353000|C:\Faculta\FP\Store\Products\Products.py
+App.__init__|1454430922270407000|C:\Faculta\FP\Store\App\__init__.py
+-- END DISKCACHE
+-- START DICTIONARY
+19
+1=App.App
+6=UI.UI
+7=controller
+8=product
+16=product.setprice
+5=Tests.PyUnit
+12=repository.__init__
+14=product.setid
+9=repository
+2=Controller.Controller
+13=product.__init__
+4=Repository.Repository
+10=ui
+19=Test
+11=ui.__init__
+18=Test.setUp
+15=product.setname
+3=Products.Products
+17=controller.__init__
+-- END DICTIONARY
+-- START TREE 1
+8
+aco|1|acontroller!11@
+are|1|arepository!11@
+aui|1|aui!11@
+con|1|controller!17@
+pro|1|product!25@
+rep|1|repository!33@
+tes|1|Test!41@
+ui|1|ui!49@
+-- END TREE
+-- START TREE 2
+27
+__i|4|__init__!7&18@__init__!8&26@__init__!9&34@__init__!10&50@
+__l|1|__len__!9&34@
+__r|1|__repr__!8&26@
+__s|1|__str__!8&26@
+_c|1|_c!11&51@
+_fp|1|_fProducts!12&35@
+_id|2|_id!13&27@_id!14&27@
+_li|1|_list!12&35@
+_lo|1|_loadFromFile!9&34@
+_na|2|_name!13&27@_name!15&27@
+_pr|2|_price!13&27@_price!16&27@
+_re|1|_rep!17&19@
+_st|1|_storeToFile!9&34@
+add|3|addProduct!10&50@add!9&34@add!7&18@
+fil|2|filter!10&50@filter!7&18@
+fin|1|findById!9&34@
+get|5|getAll!7&18@getname!8&26@getid!8&26@getprice!8&26@getAll!9&34@
+mai|1|mainMenu!10&50@
+p1|1|p1!18&43@
+p2|1|p2!18&43@
+p3|1|p3!18&43@
+pri|3|printlist!10&50@printMenu!10&50@printList!10&50@
+rep|1|repo!18&43@
+set|4|setUp!19&42@setname!8&26@setprice!8&26@setid!8&26@
+sor|1|sorter!7&18@
+tes|1|testAdd!19&42@
+upd|3|updateProduct!10&50@update!9&34@update!7&18@
+-- END TREE

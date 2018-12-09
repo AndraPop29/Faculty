@@ -1,0 +1,8 @@
+,-1,
+drink,4,closed
+workout,2,in progress
+sleep,1,in progress
+clean,-1,open
+eat,-1,open
+run,-1,open
+sadsa,-1,open

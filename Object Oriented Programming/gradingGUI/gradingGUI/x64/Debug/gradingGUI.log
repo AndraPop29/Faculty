@@ -1,0 +1,9 @@
+﻿  Controller.cpp
+  moc_adminagui.cpp
+  moc_gradinggui.cpp
+  Repository.cpp
+  adminagui.cpp
+  gradinggui.cpp
+  main.cpp
+  Generating Code...
+  gradingGUI.vcxproj -> C:\Faculta\Invatam la oop\gradingGUI\x64\Debug\gradingGUI.exe

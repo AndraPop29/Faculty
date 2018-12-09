@@ -1,0 +1,65 @@
+-- VERSION_4
+-- START DISKCACHE_2
+C:\FP\.metadata\.plugins\org.eclipse.core.resources\.projects\IncercareGraph\com.python.pydev.analysis\v2_indexcache
+app|1459151844457323000|C:\FP\IncercareGraph\app.py
+edgeProperty|1458892583935423000|C:\FP\IncercareGraph\edgeProperty.py
+Graph|1459152502746683000|C:\FP\IncercareGraph\Graph.py
+Repo|1459153117327022000|C:\FP\IncercareGraph\Repo.py
+UI|1459152782863056000|C:\FP\IncercareGraph\UI.py
+Controller|1459152782875066000|C:\FP\IncercareGraph\Controller.py
+-- END DISKCACHE
+-- START DICTIONARY
+17
+3=app
+14=DDictGraph.__init__
+11=repo.__init__
+9=controller
+8=repo
+7=EP
+4=Controller
+1=edgeProperty
+13=UI.__init__
+5=Graph
+2=UI
+6=Repo
+10=DDictGraph
+16=repo._loadFromFile
+17=controller.__init__
+12=repo.makeCopy
+15=EP.__init__
+-- END DICTIONARY
+-- START TREE 1
+8
+EP|1|EP!9@
+UI|1|UI!17@
+aco|1|acon!27@
+are|1|arepo!27@
+aui|1|aui!27@
+con|1|controller!33@
+ddi|1|DDictGraph!41@
+rep|1|repo!49@
+-- END TREE
+-- START TREE 2
+21
+__i|5|__init__!7&10@__init__!8&50@__init__!9&34@__init__!10&42@__init__!2&18@
+_co|3|_copy!11&51@_copy!12&51@_con!13&19@
+_di|2|_dictOut!14&43@_dictIn!14&43@
+_ep|2|_ep!15&11@_ep!11&51@
+_f|1|_f!11&51@
+_gr|2|_graph!11&51@_graph!16&51@
+_lo|1|_loadFromFile!8&50@
+_nr|1|_nrVertices!14&43@
+_re|1|_repo!17&35@
+add|7|addVertex!9&34@addEP!7&10@addEdge!8&50@addEdge!9&34@addEdge!2&18@addEdge!10&42@addVertex!8&50@
+epe|1|epExists!7&10@
+get|22|getEp!8&50@getEp!9&34@getAllEp!9&34@getInD!8&50@getVert!9&34@getAllEp!7&10@getInD!9&34@getVert!8&50@getGraph!8&50@getCopy!8&50@getOutD!9&34@getInL!9&34@getGraph!9&34@getEp!7&10@getCopy!9&34@getOutL!8&50@getNrVertices!10&42@getInL!8&50@getOutL!9&34@getAllEp!8&50@getPos!8&50@getOutD!8&50@
+ino|1|inOut!2&18@
+ise|4|isEdge!10&42@isEdge!8&50@isEdge!9&34@isEdge!2&18@
+ite|2|IteratorOut!2&18@IteratorIn!2&18@
+mai|1|mainMenu!2&18@
+mak|2|makeCopy!8&50@makeCopy!9&34@
+mod|3|modiCost!7&10@modiCost!9&34@modiCost!8&50@
+par|3|parseX!10&42@parseNout!10&42@parseNin!10&42@
+pri|2|printGraph!2&18@printMenu!2&18@
+rem|8|removeEdge!8&50@removeEdge!9&34@removeEdge!2&18@removeEP!7&10@removeVertex!8&50@removeKey!8&50@removeVertex!9&34@removeAllEdges!8&50@
+-- END TREE

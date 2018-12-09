@@ -1,0 +1,12 @@
+MODULES_MANAGER_V2
+Controller.Controller|C:\Faculta\FP\Practic1\Controller\Controller.py
+Controller.__init__|C:\Faculta\FP\Practic1\Controller\__init__.py
+Domain.Product|C:\Faculta\FP\Practic1\Domain\Product.py
+Domain.SCart|C:\Faculta\FP\Practic1\Domain\SCart.py
+Domain.__init__|C:\Faculta\FP\Practic1\Domain\__init__.py
+Repository.Repository|C:\Faculta\FP\Practic1\Repository\Repository.py
+Repository.__init__|C:\Faculta\FP\Practic1\Repository\__init__.py
+UI.UI|C:\Faculta\FP\Practic1\UI\UI.py
+UI.__init__|C:\Faculta\FP\Practic1\UI\__init__.py
+app|C:\Faculta\FP\Practic1\app.py
+test|C:\Faculta\FP\Practic1\test.py

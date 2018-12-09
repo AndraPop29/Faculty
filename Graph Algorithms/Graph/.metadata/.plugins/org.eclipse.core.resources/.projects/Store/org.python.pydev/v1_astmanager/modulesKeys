@@ -1,0 +1,14 @@
+MODULES_MANAGER_V2
+App.App|C:\Faculta\FP\Store\App\App.py
+App.__init__|C:\Faculta\FP\Store\App\__init__.py
+Controller.Controller|C:\Faculta\FP\Store\Controller\Controller.py
+Controller.__init__|C:\Faculta\FP\Store\Controller\__init__.py
+Products.Products|C:\Faculta\FP\Store\Products\Products.py
+Products.__init__|C:\Faculta\FP\Store\Products\__init__.py
+Repository.Repository|C:\Faculta\FP\Store\Repository\Repository.py
+Repository.__init__|C:\Faculta\FP\Store\Repository\__init__.py
+Tests.PyUnit|C:\Faculta\FP\Store\Tests\PyUnit.py
+Tests.TestStart|C:\Faculta\FP\Store\Tests\TestStart.py
+Tests.__init__|C:\Faculta\FP\Store\Tests\__init__.py
+UI.UI|C:\Faculta\FP\Store\UI\UI.py
+UI.__init__|C:\Faculta\FP\Store\UI\__init__.py

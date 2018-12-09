@@ -1,0 +1,90 @@
+-- VERSION_4
+-- START DISKCACHE_2
+C:\FP\.metadata\.plugins\org.eclipse.core.resources\.projects\Practic1\com.python.pydev.analysis\v2_indexcache
+Repository.Repository|1454762780688635000|C:\Faculta\FP\Practic1\Repository\Repository.py
+app|1454751262402345000|C:\Faculta\FP\Practic1\app.py
+UI.UI|1454758958614900000|C:\Faculta\FP\Practic1\UI\UI.py
+Repository.__init__|1454750000731096000|C:\Faculta\FP\Practic1\Repository\__init__.py
+UI.__init__|1454750035475036000|C:\Faculta\FP\Practic1\UI\__init__.py
+test|1454760602228976000|C:\Faculta\FP\Practic1\test.py
+Domain.__init__|1454749939842480000|C:\Faculta\FP\Practic1\Domain\__init__.py
+Domain.Product|1454760803543450000|C:\Faculta\FP\Practic1\Domain\Product.py
+Controller.Controller|1454762780804309000|C:\Faculta\FP\Practic1\Controller\Controller.py
+Controller.__init__|1454750015587707000|C:\Faculta\FP\Practic1\Controller\__init__.py
+Domain.SCart|1454758958667963000|C:\Faculta\FP\Practic1\Domain\SCart.py
+-- END DISKCACHE
+-- START DICTIONARY
+25
+14=repository.__init__
+16=product.setid
+10=repository
+3=Domain.Product
+5=Domain.SCart
+8=scart
+12=ui
+19=product.setname
+24=controller.__init__
+1=app
+7=UI.UI
+9=controller
+11=product
+6=test
+25=repository.noBuy
+18=repository.buy
+21=product.setp
+22=product.setq
+2=Controller.Controller
+15=product.__init__
+4=Repository.Repository
+20=scart.setp
+13=ui.__init__
+23=scart.setq
+17=scart.__init__
+-- END DICTIONARY
+-- START TREE 1
+9
+aco|1|acon!11@
+are|1|arep!11@
+aui|1|aui!11@
+con|1|controller!17@
+pro|1|product!25@
+rep|1|repository!33@
+sca|1|scart!41@
+tes|1|test!50@
+ui|1|ui!57@
+-- END TREE
+-- START TREE 2
+32
+__i|5|__init__!8&42@__init__!9&18@__init__!10&34@__init__!11&26@__init__!12&58@
+__s|2|__str__!11&26@__str__!8&42@
+_c|1|_c!13&59@
+_fp|1|_fProducts!14&35@
+_id|3|_id!15&27@_id!16&27@_id!17&43@
+_in|2|_income!14&35@_income!18&35@
+_li|1|_list!14&35@
+_lo|1|_loadFromFile!10&34@
+_na|2|_name!15&27@_name!19&27@
+_p|4|_p!17&43@_p!20&43@_p!15&27@_p!21&27@
+_pu|1|_purchases!14&35@
+_q|4|_q!15&27@_q!22&27@_q!17&43@_q!23&43@
+_re|1|_rep!24&19@
+_sc|3|_scart!14&35@_scart!18&35@_scart!25&35@
+_st|1|_storeToFile!10&34@
+add|8|addC!10&34@add!10&34@addToCart!10&34@addToCart!12&58@add!9&18@addToCart!9&18@addPurc!10&34@addP!12&58@
+ava|1|available!10&34@
+buy|2|buy!10&34@buy!9&18@
+dis|1|displayTotal!12&58@
+fin|2|findId!10&34@finalize!12&58@
+fou|1|found!10&34@
+get|14|getid!8&42@getp!11&26@getq!11&26@getCart!9&18@getPurc!10&34@getincome!10&34@getid!11&26@getPurc!9&18@getAll!9&18@getq!8&42@getp!8&42@getname!11&26@getAll!10&34@getSCart!10&34@
+inc|2|income!9&18@income!12&58@
+men|1|menu!12&58@
+nob|2|nobuy!9&18@noBuy!10&34@
+pri|3|printCart!12&58@printMenu!12&58@printList!12&58@
+rep|1|report!12&58@
+set|6|setname!11&26@setp!8&42@setp!11&26@setid!11&26@setq!11&26@setq!8&42@
+sor|1|sortBubble!9&18@
+swa|1|swap!9&18@
+tot|2|total!10&34@total!9&18@
+upd|1|update!10&34@
+-- END TREE

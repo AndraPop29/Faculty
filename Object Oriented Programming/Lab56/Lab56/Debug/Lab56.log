@@ -1,0 +1,4 @@
+﻿  ui.cpp
+c:\faculta\oop\lab56\lab56\ui.cpp(165): warning C4715: 'ui::viewDogs': not all control paths return a value
+c:\faculta\oop\lab56\lab56\ui.cpp(194): warning C4715: 'ui::nextDog': not all control paths return a value
+  Lab56.vcxproj -> C:\Faculta\OOP\Lab56\Lab56\Debug\Lab56.exe

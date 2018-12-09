@@ -1,0 +1,28 @@
+27
+S:ABC
+A:DEF
+D:G<ID>
+E:HIJ;
+F:KL(){
+C : MN;}
+B : OP
+O : KJ;
+P : J=Q;
+Q : J
+Q : N
+J : a
+= : =
+M : l
+N : b
+K : f
+L : g
+( : (
+) : )
+{ : {
+} : }
+H : d
+I : e
+; : ;
+G : c
+< : <
+> : >

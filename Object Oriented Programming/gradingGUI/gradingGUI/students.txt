@@ -1,0 +1,8 @@
+0,Dana,214,10,Toadere
+1,Andra,913,10,Iuliana
+2,Cosmin,917,5,Pintea
+3,Ioana,913,7,Pintea
+4,Laura,913,2,Iuliana
+5,Alina,218,8,Toadere
+6,Diana,218,5,Toadere
+7,Ramona,218,10,Boian

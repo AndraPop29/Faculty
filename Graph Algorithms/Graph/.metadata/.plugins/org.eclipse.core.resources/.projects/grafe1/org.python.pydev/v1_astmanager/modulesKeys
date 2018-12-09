@@ -1,0 +1,10 @@
+MODULES_MANAGER_V2
+Controller.GraphController|C:\Faculta\Graph Algorithms\practical work no3 - Dijkstra\Controller\GraphController.py
+Controller.__init__|C:\Faculta\Graph Algorithms\practical work no3 - Dijkstra\Controller\__init__.py
+app.__init__|C:\Faculta\Graph Algorithms\practical work no3 - Dijkstra\app\__init__.py
+app.app|C:\Faculta\Graph Algorithms\practical work no3 - Dijkstra\app\app.py
+domain.DirectedGraphs|C:\Faculta\Graph Algorithms\practical work no3 - Dijkstra\domain\DirectedGraphs.py
+domain.EdgeProperty|C:\Faculta\Graph Algorithms\practical work no3 - Dijkstra\domain\EdgeProperty.py
+domain.__init__|C:\Faculta\Graph Algorithms\practical work no3 - Dijkstra\domain\__init__.py
+ui.UI|C:\Faculta\Graph Algorithms\practical work no3 - Dijkstra\ui\UI.py
+ui.__init__|C:\Faculta\Graph Algorithms\practical work no3 - Dijkstra\ui\__init__.py

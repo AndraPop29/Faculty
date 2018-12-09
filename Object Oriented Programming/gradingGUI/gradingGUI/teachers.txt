@@ -1,0 +1,8 @@
+Pintea
+2 913 917
+Toadere
+2 214 218
+Iuliana
+2 913 917
+Boian
+4 913 917 214 218

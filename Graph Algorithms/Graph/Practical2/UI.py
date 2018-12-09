@@ -1,0 +1,167 @@
+'''
+Created on Mar 11, 2016
+
+@author: Andra
+'''
+class UI:
+    def __init__(self,con):
+        self._con=con
+    
+    def printMenu(self):
+        print("******************************************************************")
+        print("0.Exit")
+        print("1.Get number of vertices")
+        print("2.Find out whether there is an edge between 2 vertices. Give Edge_id")
+        print("3.Get the in_degree and out_degree of a vertex")
+        print("4.Iterate through the set of outbound edges of a specified vertex (that is, provide an iterator).")
+        print("5.Iterate through the set of inbound edges of a specified vertex ")
+        print("6.Get/modify integer attached to edge")
+        print("7.Add Vertex")
+        print("8.Remove Vertex")
+        print("9.Print graph")
+        print("10.Add edge")
+        print("11.Remove edge")
+        print("12.Make a copy of the graph")
+        print("13.Show copy")
+        print("15.Bfs backward")
+        print("16.Is it a DAG?")
+        print("17.Topo sort")
+        print("18.DFS")
+        print("19.Longest path between 2 vertices")
+        print("******************************************************************")
+    
+    def printGraph(self):
+        G=self._con.getGraph()
+        print("Outbound:")
+        print(G._dictOut)
+        print("Inbound:")
+        print(G._dictIn)
+    def isEdge(self):
+        x=int(input("Give starting vertex: "))
+        y=int(input("Give end vertex: "))
+        if(self._con.isEdge(x,y)==1):
+            print("There is an edge")
+        else:
+            print("There isn't an edge")
+    def inOut(self):
+        x=int(input("Give vertex: "))
+        if self._con.getInD(x)==-1 and self._con.getOutD(x)==-1:
+            print("That vertex doesn't exist in the graph")
+        else:
+            print("The in_degree is: ")
+            print(self._con.getInD(x))
+            print("The out_degree is: ")
+            print(self._con.getOutD(x))
+    
+    def IteratorOut(self):
+        x=int(input("Give vertex: "))
+        l=self._con.getOutL(x) 
+        k=1
+        if len(l)==0:
+            print("The out degree is 0!")
+        for i in l:
+            print("Target vertex",k,": ",i)
+            k=k+1
+    
+    def IteratorIn(self):
+        x=int(input("Give vertex: "))
+        l=self._con.getInL(x) 
+        if len(l)==0:
+            print("The in degree is 0!")
+        k=1
+        for i in l:
+            print("Source vertex",k,": ",i)    
+            k=k+1
+            
+    def addEdge(self):
+        x=int(input("Give source vertex: "))
+        y=int(input("Give destination vertex: "))
+        c=input("Give cost: ")
+        print(self._con.addEdge(x,y,c))
+        
+    def removeEdge(self):
+        x=int(input("Give source vertex: "))
+        y=int(input("Give destination vertex: "))
+        print(self._con.removeEdge(x,y))
+    
+  
+    def mainMenu(self):
+        while True:
+            self.printMenu()
+            cmd=input("Give command: ")
+            if(cmd=="0"):
+                print("Exitting")
+                break
+            elif cmd=="1":
+                print(self._con.getVert())
+            elif cmd=="2":
+                self.isEdge()
+            elif cmd=="3":
+                self.inOut()
+            elif cmd=="4":
+                self.IteratorOut()
+            elif cmd=="5":
+                self.IteratorIn()
+            elif cmd=="6":
+                
+                print("Give edge information: ")
+                x=int(input("Source vertex: "))
+                y=int(input("Destination vertex: "))
+                if self._con.isEdge(x,y):
+                    print(self._con.getEp(x,y))
+                    n=input("Would you like to modify the cost: ")
+                    if n=="yes":
+                        new=int(input("Give new cost: "))
+                        self._con.modiCost(x,y,new)
+                else:
+                    print("No such edge! ")
+            elif cmd=="7":
+                x=int(input("Give vertex: "))
+                self._con.addVertex(x)
+            elif cmd=="8":
+                x=int(input("Which vertex would you like to remove? "))
+                print(self._con.removeVertex(x))
+            elif cmd=="9":
+                self.printGraph()
+            
+            elif cmd=="10":
+                self.addEdge()
+                
+            elif cmd=="11":
+                self.removeEdge()
+                
+            elif cmd=="12":
+                self._con.makeCopy()
+            
+            elif cmd=="13":
+                copy=self._con.getCopy()
+                print("Outbound:")
+                print(copy._dictOut)
+                print("Inbound:")
+                print(copy._dictIn)
+            
+            elif cmd=="14":
+                print(self._con.getAllEp())
+                
+            elif cmd=="15":
+                first=int(input("Give starting vertex: "))
+                last=int(input("Give end vertex: "))
+                
+                #print(self._con.bfs_Back(first,last))
+                print("Length: "+ str(len(self._con.bfs_Back(first,last))))
+            
+            elif(cmd=="16"):
+                print(self._con.isDAG());
+            
+            elif(cmd=="17"):
+                res=self._con.topoSort()
+        
+                print(res);
+            #elif(cmd=="18"):
+                #self._con._repo.DFS();
+                
+            elif(cmd=="19"):
+                x=int(input("Give source: "))
+                y=int(input("Give destination: "))
+                print(self._con._repo.maxCostPath(x,y))
+                
