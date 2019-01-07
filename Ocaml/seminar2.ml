@@ -164,8 +164,6 @@ let program  =
 
 (* HELPER FUNCTIONS *)
 
-(* Field list *)
-
 let rev_list l =
   let rec rev_acc acc = function
     | Progr([]) -> Progr(acc)
@@ -180,7 +178,7 @@ let rec print_fields lista =
 
 let size l = List.fold_left (fun acc _ -> acc + 1) 0 l;;
 
-(* Exchanges the positions of elements in a list of pairs *)
+(* Exchanges the positions of pair members in a list of pairs *)
 
 let rec inverse_tuple list =
   match list with
@@ -266,7 +264,7 @@ let class_fields program obj =
 
 let rec find_tuple string_name tuples_list =
   match tuples_list with
-    [] -> Tnone
+    [] -> raise (Exception "Tuple not found")
   |(s, i)::tl -> if s = string_name then i
     else find_tuple string_name tl
 
@@ -314,17 +312,17 @@ let rec well_typed_expression progr env expCrt =
 
   | Value(Vvoid) -> Tprim(Tvoid)
 
-  | Var(s) when (find_tuple s env) != Tnone -> find_tuple s env
+  | Var(s) -> find_tuple s env
 
-  | Vfld(v, f) when (find_tuple v env) <> Tnone && (* type of variable*)
-                    (inherits (find_tuple v env) progr) <> Tclass("") && (* check if class exists*)
-                    (find_tuple f (class_fields progr (find_tuple v env))) <> Tbot ->
-    (find_tuple f (class_fields progr (find_tuple v env)))
+  | Vfld(v, f) when (inherits (find_tuple v env) progr) <> Tclass("") ->
+    (find_tuple f (class_fields progr (find_tuple v env))) 
 
-  | AsgnV(v, e) when (find_tuple v env) <> Tnone && (subtype (well_typed_expression progr env e) (find_tuple v env) progr) = true
+  | AsgnV(v, e) when (subtype (well_typed_expression progr env e) (find_tuple v env) progr) 
     -> Tprim(Tvoid)
 
-  | AsgnF(v, f, e) when (well_typed_expression progr env (Vfld(v,f))) <> Tbot && (well_typed_expression progr env e) <> Tnone && (subtype (well_typed_expression progr env e) (well_typed_expression progr env (Vfld(v,f))) progr) = true
+  | AsgnF(v, f, e) when (well_typed_expression progr env (Vfld(v,f))) <> Tnone &&
+                        (well_typed_expression progr env e) <> Tnone && 
+                        (subtype (well_typed_expression progr env e) (well_typed_expression progr env (Vfld(v,f))) progr)
     -> Tprim(Tvoid)
 
   | Blk(Bvar(typ, v, e)) when (find_tuple v env) = typ && (well_typed_expression progr env e) <> Tnone -> (well_typed_expression progr env e)
@@ -333,8 +331,9 @@ let rec well_typed_expression progr env expCrt =
 
   | Seq(e1, e2) when (well_typed_expression progr env e2) <> Tnone && (well_typed_expression progr env e2) <> Tnone -> (well_typed_expression progr env e2)
 
-  | If(v, blk1, blk2) when (subtype (find_tuple v env) (Tprim(Tbool)) progr) && (well_typed_expression progr env (Blk(blk1))) <> Tbot && 
-                           (well_typed_expression progr env (Blk(blk2))) <> Tbot -> (leastMaximum (well_typed_expression progr env (Blk(blk1))) (well_typed_expression progr env (Blk(blk2))) progr)
+  | If(v, blk1, blk2) when (subtype (find_tuple v env) (Tprim(Tbool)) progr) && (well_typed_expression progr env (Blk(blk1))) <> Tnone && 
+                           (well_typed_expression progr env (Blk(blk2))) <> Tnone
+    -> (leastMaximum (well_typed_expression progr env (Blk(blk1))) (well_typed_expression progr env (Blk(blk2))) progr)
 
   | AddInt(e1, e2) | MulInt(e1, e2) | DivInt(e1, e2) | SubInt(e1, e2) when (subtype (well_typed_expression progr env e1) (Tprim(Tint)) progr) && 
                                                                            (subtype (well_typed_expression progr env e1) (Tprim(Tint)) progr)
@@ -359,7 +358,7 @@ let rec well_typed_expression progr env expCrt =
                                             (match_var_fields progr env varList (class_fields progr (Tclass(cls)))) 
     -> Tclass(cls)
 
-  | WhileVar(v, e) when (subtype (find_tuple v env) (Tprim(Tbool)) progr) && (well_typed_expression progr env e) <> Tbot -> Tprim(Tvoid)
+  | WhileVar(v, e) when (subtype (find_tuple v env) (Tprim(Tbool)) progr) && (well_typed_expression progr env e) <> Tnone -> Tprim(Tvoid)
 
   | MethCall(cls, methName, vars) -> (check_method_call (find_tuple cls env) (MethCall(cls, methName, vars)) progr env)  
 
